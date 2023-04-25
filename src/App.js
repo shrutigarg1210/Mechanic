@@ -1,8 +1,8 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
-import About from "./routes/About";
+import About from "./components/AboutDetails/About";
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
-import Mechanicform from "./routes/Mechanicform";
+import Mechanicform from "./components/MechanicForm/Mechanicform";
 import Layout from "./Layout";
 
 function App() {

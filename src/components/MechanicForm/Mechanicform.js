@@ -1,6 +1,7 @@
 import React, { useState, setState } from "react";
-import "../components/Mechanicform.css";
-import Navbar from "../components/Navbar";
+import axios from "axios";
+import "./Mechanicform.css";
+import Navbar from "../Navbar";
 const Mechanicform = () => {
   const [firstname, setfirstname] = useState("");
   const [lastname, setlastname] = useState("");
@@ -75,9 +76,32 @@ const Mechanicform = () => {
       state
     );
   };
+
+  async function submit (e){
+
+        e.preventDefault();
+
+        try{
+
+            await axios.post("mongodb+srv://shrutigarg749:<KAjBfuhHJQLv4Eei>@mechanicform.zrwveqq.mongodb.net/test",{
+              firstname,
+              lastname,email,password,confirmPassword,
+              phoneNumber,
+              city,
+              address,
+              district,
+              state
+            })
+        }
+
+        catch(e){
+                
+            console.log(e);
+        }
+    }
   return (
     <div className="form">
-     
+     <form action="POST">
       <div className="form-body">
        
         <div className="firstname">
@@ -257,7 +281,7 @@ const Mechanicform = () => {
           Register
         </button>
       </div>
-  
+      </form>
     </div>
   );
 };
