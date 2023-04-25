@@ -12,6 +12,7 @@ const Mechanicform = () => {
   const [city, setCity] = useState("");
   const [district, setDistrict] = useState("");
   const [state, setstate] = useState("");
+  // const [checked, setChecked] = useState(false);
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -54,6 +55,10 @@ const Mechanicform = () => {
     if (id === "state") {
       setstate(value);
     }
+
+  // const onChange = () => {
+  //   setChecked(!checked);
+  // };
   };
 
   const handleSubmit = () => {
@@ -162,6 +167,8 @@ const Mechanicform = () => {
             type="Number"
             id="phoneNumber"
             required
+            maxLength={10}
+            pattern="[1-9]{1}[0-9]{9}"
             placeholder="9876543210"
             value={phoneNumber}
             onChange={(e) => handleInputChange(e)}
@@ -227,6 +234,22 @@ const Mechanicform = () => {
             onChange={(e) => handleInputChange(e)}
           />
         </div><br/>
+        {/* <div>
+        Select Vehicle type:
+      <div className="topping">
+        <input
+          type="checkbox"
+          id="topping"
+          name="topping"
+          value="Paneer"
+          checked={isChecked}
+          onChange={handleOnChange}
+        />
+      </div>
+      <div className="result">
+        Above checkbox is {isChecked ? "checked" : "un-checked"}.
+      </div>
+        </div>   */}
       </div>
 
       <div class="footer">

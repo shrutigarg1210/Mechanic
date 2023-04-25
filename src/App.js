@@ -33,7 +33,7 @@ function App() {
             element={
               <Layout>
                 <Navbar />
-                <Mechanicform/>
+                <Mechanicform />
               </Layout>
             }
           />
