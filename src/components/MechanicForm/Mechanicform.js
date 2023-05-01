@@ -1,8 +1,10 @@
 import React, { useState, setState } from "react";
 import axios from "axios";
 import "./Mechanicform.css";
+import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../Navbar";
 const Mechanicform = () => {
+  const history = useNavigate();
   const [firstname, setfirstname] = useState("");
   const [lastname, setlastname] = useState("");
   const [email, setEmail] = useState("");
@@ -56,34 +58,18 @@ const Mechanicform = () => {
     if (id === "state") {
       setstate(value);
     }
-
-    // const onChange = () => {
-    //   setChecked(!checked);
-    // };
   };
 
   const handleSubmit = () => {
-    console.log(
-      firstname,
-      lastname,
-      email,
-      password,
-      confirmPassword,
-      phoneNumber,
-      city,
-      address,
-      district,
-      state
-    );
+    if (password === confirmPassword) {
+    } else {
+      console.log("Password does not match");
+    }
   };
-
-  async function submit(e) {
-    e.preventDefault();
-
+  async function submit() {
     try {
-      await axios.post(
-        "mongodb+srv://shrutigarg749:<KAjBfuhHJQLv4Eei>@mechanicform.zrwveqq.mongodb.net/test",
-        {
+      await axios
+        .post("http://localhost:8000/Mechanicform", {
           firstname,
           lastname,
           email,
@@ -94,280 +80,247 @@ const Mechanicform = () => {
           address,
           district,
           state,
-        }
-      );
+        })
+        .then((res) => {
+          if (res.data === "exist") {
+            alert("User Already Exist😁");
+          } else if (res.data === "not exist") {
+            history("/home/Home", { state: { id: email } });
+          }
+          // console.log('result')
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("Wrong Details");
+        });
     } catch (e) {
       console.log(e);
     }
   }
   return (
-    <div className="form">
-      <form action="POST">
-        <div className="form-body">
-          <table>
-          <tr className="firstname input-box">
-            <td>
-              <label className="form_label" for="firstName">
-                FirstName
-              </label>
-            </td>
+    <center>
+      {" "}
+      <div className="form">
+        <form onSubmit={handleSubmit} action="POST">
+          <div className="form-body">
+            <table>
+              <tr className="firstname input-box">
+                <td>
+                  <label className="form_label" for="firstName">
+                    Name
+                  </label>
+                </td>
 
-            <td>
-              <input
-                  className="form_input"
-                  type="text"
-                  value={firstname}
-                  required
-                  onChange={(e) => handleInputChange(e)}
-                  id="firstName"
-                  placeholder="First Name"
-                />
-            </td>
-            
-          </tr>
+                <td>
+                  <input
+                    className="form_input"
+                    type="text"
+                    value={firstname}
+                    required
+                    onChange={(e) => handleInputChange(e)}
+                    id="firstName"
+                    placeholder="First Name"
+                  />
+                </td>
+                <td className="lastname input-box">
+                  <label className="form_label" for="lastName">
+                    Owner
+                  </label>
+                </td>
 
-          
-          <tr className="lastname input-box">
-              
-            <td>
-              <label className="form_label" for="lastName">
-                LastName
-              </label>
-            </td>
-            
-            <td>
-              <input
-                className="form_input"
-                type="text"
-                value={lastname}
-                required
-                onChange={(e) => handleInputChange(e)}
-                id="lastName"
-                placeholder="Last Name"
-              />
-            </td>
-            
-          </tr>
-       
-       
-          <tr className="email input-box">
-            <td>
-              <label className="form_label" for="email">
-                Email
-              </label>
-            </td>
-            
-            <td>
+                <td>
+                  <input
+                    className="form_input"
+                    type="text"
+                    value={lastname}
+                    required
+                    onChange={(e) => handleInputChange(e)}
+                    id="lastName"
+                    placeholder="Last Name"
+                  />
+                </td>
+              </tr>
 
-            <input
-              className="form_input"
-              type="email"
-              id="email"
-              required
-              placeholder="abc@gmail.com"
-              value={email}
-              onChange={(e) => handleInputChange(e)}
-            />
-            </td>
-            
-          </tr>
-          
+              <tr className="email input-box">
+                <td>
+                  <label className="form_label" for="email">
+                    Email
+                  </label>
+                </td>
 
-          <tr className="password input-box">
-            <td>
-              <label className="form_label" for="password">
-                Password
-              </label>
-            </td>
-           
-            <td>
-              <input
-                className="form_input"
-                type="password"
-                id="password"
-                required
-                placeholder="password"
-                value={password}
-                onChange={(e) => handleInputChange(e)}
-              />
-            </td>
-          </tr>
-         
-          <tr className="confirm-password input-box">
-            <td>
-              <label className="form_label" for="confirmPassword">
-                Confirm Password
-              </label>
-            </td>
-            
-            <td>
-            <input
-              className="form_input"
-              type="password"
-              id="confirmPassword"
-              required
-              placeholder="password"
-              value={confirmPassword}
-              onChange={(e) => handleInputChange(e)}
-            />
-            </td>
-            
-          </tr>
-          
-          <tr className="phoneNumber input-box">
-            
-            <td>
-              <label className="form_label" for="phoneNumber">
-              Phone Number
-              </label>
-            </td>
-            
-            <td>
-              <input
-                className="form_input"
-                type="String"
-                id="phoneNumber"
-                required
-                maxLength={10}
-                pattern="[1-9]{1}[0-9]{9}"
-                placeholder="9876543210"
-                value={phoneNumber}
-                onChange={(e) => handleInputChange(e)}
-              />
-            </td>
-          </tr>
-          
+                <td>
+                  <input
+                    className="form_input"
+                    type="email"
+                    id="email"
+                    required
+                    placeholder="abc@gmail.com"
+                    value={email}
+                    onChange={(e) => handleInputChange(e)}
+                  />
+                </td>
 
-          <tr className="address input-box">
+                <td className="phoneNumber input-box">
+                  <label className="form_label" for="phoneNumber">
+                    Phone Number
+                  </label>
+                </td>
 
-            <td>
-              <label className="form_label" for="address">
-                Address
-              </label>
-            </td>
-           
-           <td>
-            <input
-                className="form_input"
-                type="address"
-                id="address"
-                required
-                placeholder="address"
-                value={address}
-                onChange={(e) => handleInputChange(e)}
-              />
-           </td>
-            
-          </tr>
-         
-          <tr className="city input-box">
+                <td>
+                  <input
+                    className="form_input"
+                    type="String"
+                    id="phoneNumber"
+                    required
+                    maxLength={10}
+                    pattern="[1-9]{1}[0-9]{9}"
+                    placeholder="9876543210"
+                    value={phoneNumber}
+                    onChange={(e) => handleInputChange(e)}
+                  />
+                </td>
+              </tr>
 
-            <td>
-              <label className="form_label" for="city">
-                City
-              </label>
-            </td>
-            
-            <td>
+              <tr className="password input-box">
+                <td>
+                  <label className="form_label" for="password">
+                    Password
+                  </label>
+                </td>
 
-              <input
-                className="form_input"
-                type="text"
-                id="city"
-                required
-                placeholder="city"
-                value={city}
-                onChange={(e) => handleInputChange(e)}
-              />
-            </td>
-          
-          </tr>
-         
-          <tr className="district input-box">
-           
-           <td>
-            <label className="form_label" for="district">
-                District
-              </label>
-           </td>
-            
-            <td>
-              <input
-                className="form_input"
-                type="district"
-                id="district"
-                required
-                placeholder="district"
-                value={district}
-                onChange={(e) => handleInputChange(e)}
-              />
-            </td>
-           
-          </tr>
-         
+                <td>
+                  <input
+                    className="form_input"
+                    type="password"
+                    id="password"
+                    required
+                    placeholder="password"
+                    value={password}
+                    onChange={(e) => handleInputChange(e)}
+                  />
+                </td>
 
-          <tr className="state input-box">
-            
-            <td>
-              <label className="form_label" for="state">
-                State
-              </label>
-            </td>
-            
-            <td>
-              <input
-                className="form_input"
-                type="text"
-                id="state"
-                required
-                placeholder="state"
-                value={state}
-                onChange={(e) => handleInputChange(e)}
-              />
-            </td>
-          </tr>
-        
-        {/* <tr className="input-box">
-          <td>
-          <input type="checkbox"> Truck</input>
-          </td>
-          <td>
-          <input type="checkbox"> Car</input>
-          </td>
-        </tr> */}
-       
-       <tr className="vehicle">
-            
-            {/* <td> */}
-            <input type="checkbox" /> Truck
-            {/* </td> */}
-            
-            {/* <td> */}
-            <input type="checkbox" /> Car
-            {/* </td> */}
+                <td className="confirm-password input-box">
+                  <label className="form_label" for="confirmPassword">
+                    Confirm Password
+                  </label>
+                </td>
 
-            {/* <td> */}
-            <input type="checkbox" /> Bike
-            
-            {/* </td> */}
+                <td>
+                  <input
+                    className="form_input"
+                    type="password"
+                    id="confirmPassword"
+                    required
+                    placeholder="password"
+                    value={confirmPassword}
+                    onChange={(e) => handleInputChange(e)}
+                  />
+                </td>
+                {/* </div> */}
+              </tr>
 
-            
-          </tr>
+              <tr className="address input-box">
+                <td>
+                  <label className="form_label" for="address">
+                    Address
+                  </label>
+                </td>
 
-          {/* <tr>
-            <input type="checkbox" />
-          </tr> */}
-         
+                <td>
+                  <input
+                    className="form_input"
+                    type="address"
+                    id="address"
+                    required
+                    placeholder="address"
+                    value={address}
+                    onChange={(e) => handleInputChange(e)}
+                  />
+                </td>
+                {/* </tr> */}
+                {/* <tr className="state input-box"> */}
+                <td className="state input-box">
+                  <label className="form_label" for="state">
+                    State
+                  </label>
+                </td>
 
-          </table>
+                <td>
+                  <input
+                    className="form_input"
+                    type="text"
+                    id="state"
+                    required
+                    placeholder="state"
+                    value={state}
+                    onChange={(e) => handleInputChange(e)}
+                  />
+                </td>
+              </tr>
+
+              <tr className="city input-box">
+                <td>
+                  <label className="form_label" for="city">
+                    City
+                  </label>
+                </td>
+
+                <td>
+                  <input
+                    className="form_input"
+                    type="text"
+                    id="city"
+                    required
+                    placeholder="city"
+                    value={city}
+                    onChange={(e) => handleInputChange(e)}
+                  />
+                </td>
+                {/* </tr> */}
+
+                <td className="district input-box">
+                  <label className="form_label" for="district">
+                    District
+                  </label>
+                </td>
+
+                <td>
+                  <input
+                    className="form_input"
+                    type="district"
+                    id="district"
+                    required
+                    placeholder="district"
+                    value={district}
+                    onChange={(e) => handleInputChange(e)}
+                  />
+                </td>
+              </tr>
+
+              <center>
+                <tr className="vehicle">
+                  {/* <td> */}
+                  <input type="checkbox" /> Truck
+                  {/* </td> */}
+                  {/* <td> */}
+                  <input type="checkbox" /> Car
+                  {/* </td> */}
+                  {/* <td> */}
+                  <input type="checkbox" /> Bike
+                  {/* </td> */}
+                </tr>
+              </center>
+            </table>
           </div>
-        <div class="footer">
-          <button onClick={() => handleSubmit()} type="submit" class="btn">
-            Register
-          </button>
-        </div>
-      </form>
-    </div>
+          <div class="footer">
+            <button onClick={() => submit()} type="submit" class="btn">
+              Register
+            </button>
+          </div>
+        </form>
+      </div>
+    </center>
   );
 };
 
