@@ -60,9 +60,9 @@ const Navbar = () => {
               </a>
               <ul className="dropdown-menu">
                 <li>
-                  <a className="dropdown-item" href="/">
-                    User
-                  </a>
+                <Link to={"/Userregistration "}>User</Link>
+                    {/* User */}
+                  
                 </li>
 
                 <Link to={"/Mechanicform "}>Mechanic</Link>

@@ -92,14 +92,11 @@ app.post("/Mechanicform", async (req, res) => {
 
   try {
     const user = await Collection.findOne({ email: email });
-    // console.log(user);
 
     if(user){
-      return res.status(409).json({ message: "User already exists with the given email" });
+      return res.status(409).json({ message: "user exists" });
     }
     else{
-      // console.log("Ty");
-        // const us =  await Collection.create({...req.body});
         try{
           var oneCollection = new Collection({...req.body});
           oneCollection = await oneCollection.save();
@@ -108,8 +105,6 @@ app.post("/Mechanicform", async (req, res) => {
         catch(e){
           console.log(e);
         }
-        // console.log(req.body)
-        // const n = await us.save()
         return res.status(201).json({ message: "new user added", newUser: oneCollection });
     }
   } catch (e) {

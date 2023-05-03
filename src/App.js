@@ -4,6 +4,7 @@ import About from "./components/AboutDetails/About";
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import Mechanicform from "./components/MechanicForm/Mechanicform";
 import Layout from "./Layout";
+import Userregistration from "./components/User/Userregistration";
 
 function App() {
   return (
@@ -25,6 +26,15 @@ function App() {
               <Layout>
                 <Navbar />
                 <h1>Hello</h1>
+              </Layout>
+            }
+          />
+          <Route
+            path="/Userregistration"
+            element={
+              <Layout>
+                <Navbar />
+                <Userregistration />
               </Layout>
             }
           />

@@ -4,7 +4,7 @@ import "./Mechanicform.css";
 import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../Navbar";
 const Mechanicform = () => {
-  const history = useNavigate();
+  const navigate = useNavigate();
   const [firstname, setfirstname] = useState("");
   const [lastname, setlastname] = useState("");
   const [email, setEmail] = useState("");
@@ -66,7 +66,9 @@ const Mechanicform = () => {
       console.log("Password does not match");
     }
   };
+
   async function submit() {
+    navigate("/home");
     try {
       await axios
         .post("http://localhost:8000/Mechanicform", {
@@ -83,10 +85,10 @@ const Mechanicform = () => {
         })
         .then((res) => {
           console.log(res);
-          if (res.data === "exist") {
+          if (res.message === "user exists") {
             alert("User Already Exist😁");
           } else if (res.message === "new user added") {
-            history("/home");
+            navigate("/home");
           }
           // console.log('result')
         })
