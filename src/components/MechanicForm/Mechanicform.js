@@ -82,10 +82,11 @@ const Mechanicform = () => {
           state,
         })
         .then((res) => {
+          console.log(res);
           if (res.data === "exist") {
             alert("User Already Exist😁");
-          } else if (res.data === "not exist") {
-            history("/home/Home", { state: { id: email } });
+          } else if (res.message === "new user added") {
+            history("/home");
           }
           // console.log('result')
         })

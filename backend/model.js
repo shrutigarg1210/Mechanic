@@ -1,17 +1,18 @@
 const { type } = require("@testing-library/user-event/dist/type");
 const mongoose = require("mongoose");
 
-mongoose
-  .connect(
-    "mongodb+srv://shrutigarg9973:938OtZ2264YlOJhT@form.lhujlsi.mongodb.net/register"
-  )//
-  .then(() => {
-    console.log("mongoDb Connected");
-  })
-  .catch((error) => {
-    console.log(error);
-    console.log("mongoDb Connection Failed");
-  });
+// "mongodb+srv://shrutigarg9973:938OtZ2264YlOJhT@form.lhujlsi.mongodb.net/register"
+// mongoose
+//   .connect(
+//     "mongodb://0.0.0.0:27017/mechanic"
+//   )//
+//   .then(() => {
+//     console.log("mongoDb Connected");
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//     console.log("mongoDb Connection Failed");
+//   });
 
 const collectionSchema = new mongoose.Schema({
   firstname: {
@@ -31,7 +32,7 @@ const collectionSchema = new mongoose.Schema({
     required: true,
   },
 
-  confirmpassword: {
+  confirmPassword: {
     type: String,
     required: true,
   },
@@ -62,6 +63,6 @@ const collectionSchema = new mongoose.Schema({
   },
 });
 
-const collection = mongoose.model("collection", collectionSchema);
+const Collection = mongoose.model("Collection", collectionSchema);
 
-module.exports = collection;
+module.exports = Collection;

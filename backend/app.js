@@ -19,6 +19,17 @@ mongoose
     console.log(error);
     console.log("mongoDb Connection Failed");
   });
+// mongoose
+//   .connect(
+//     "mongodb://0.0.0.0:27017/mechanic"
+//   )//
+//   .then(() => {
+//     console.log("mongoDb Connected");
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//     console.log("mongoDb Connection Failed");
+//   });
 
 app.get("/", (req, res) => {
   return res.json({ status: "success" });
@@ -81,18 +92,25 @@ app.post("/Mechanicform", async (req, res) => {
 
   try {
     const user = await Collection.findOne({ email: email });
-    console.log(user);
+    // console.log(user);
 
     if(user){
       return res.status(409).json({ message: "User already exists with the given email" });
     }
     else{
-      console.log("Ty");
-        const us =  await Collection.new({...req.body});
-        // console.log("us");
-        console.log(req.body)
+      // console.log("Ty");
+        // const us =  await Collection.create({...req.body});
+        try{
+          var oneCollection = new Collection({...req.body});
+          oneCollection = await oneCollection.save();
+          console.log("Collection created");
+        }
+        catch(e){
+          console.log(e);
+        }
+        // console.log(req.body)
         // const n = await us.save()
-        return res.status(201).json({ message: "New user added successfully" });
+        return res.status(201).json({ message: "new user added", newUser: oneCollection });
     }
   } catch (e) {
     return res.status(500).json({ message: "Internal server error" });
