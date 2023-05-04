@@ -60,7 +60,7 @@ const Navbar = () => {
               </a>
               <ul className="dropdown-menu">
                 <li>
-                <Link to={"/Userregistration "}>User</Link>
+                <Link to={"/RegistrationForm "}>User</Link>
                     {/* User */}
                   
                 </li>

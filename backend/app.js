@@ -112,6 +112,38 @@ app.post("/Mechanicform", async (req, res) => {
   }
 });
 
+
+mongoose
+  .connect(
+    "mongodb+srv://shrutigarg9973:938OtZ2264YlOJhT@form.lhujlsi.mongodb.net/userRegister"
+  )//
+  .then(() => {
+    console.log("mongoDb Connected");
+  })
+  .catch((error) => {
+    console.log(error);
+    console.log("mongoDb Connection Failed");
+  });
+
+app.post("",async(req,res)=>{
+
+  console.log(req.body);
+  const {
+    firstName,
+    lastName,
+    email,
+    password,
+  } = req.body;
+
+  const data = {
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    password: password,
+    
+  };
+})
+
 app.listen(8000, () => {
   console.log("Server started on port 8000");
 });
