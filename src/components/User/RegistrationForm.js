@@ -46,7 +46,7 @@ const Registrationform = () => {
   async function submit(){
     navigate("/home");
     await axios
-        .post("http://localhost:8000/Mechanicform", {
+        .post("https://localhost:8000/Mechanicform", {
           firstname,
           lastname,
           phoneNumber,

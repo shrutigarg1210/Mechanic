@@ -62,49 +62,56 @@ const Mechanicform = () => {
 
   const handleSubmit = () => {
     if (password === confirmPassword) {
+      console.log("Wrong Details")
     } else {
       console.log("Password does not match");
     }
   };
 
-  async function submit() {
-    navigate("/home");
-    try {
-      await axios
-        .post("http://localhost:8000/Mechanicform", {
-          firstname,
-          lastname,
-          email,
-          password,
-          confirmPassword,
-          phoneNumber,
-          city,
-          address,
-          district,
-          state,
-        })
-        .then((res) => {
-          console.log(res);
-          if (res.message === "user exists") {
-            alert("User Already Exist😁");
-          } else if (res.message === "new user added") {
-            navigate("/home");
-          }
-          // console.log('result')
-        })
-        .catch((error) => {
-          console.log(error);
-          alert("Wrong Details");
-        });
-    } catch (e) {
-      console.log(e);
+  async function submit(e) {
+    e.preventDefault();
+    // navigate("/home");
+    if (password !== confirmPassword) {
+      alert("Password does not match");
+    } 
+    else {
+      // console.log("Trying axios");
+      try {
+        await axios.post("http://localhost:8000/Mechanicform", {
+            firstname,
+            lastname,
+            email,
+            password,
+            confirmPassword,
+            phoneNumber,
+            city,
+            address,
+            district,
+            state,
+          })
+          .then((res) => {
+            console.log(res);
+            if (res.message === "user exists") {
+              alert("User Already Exist😁");
+            } else if (res.message === "new user added") {
+              navigate("/home");
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            alert("Wrong Details");
+          });
+      } catch (e) {
+        console.log(e);
+      }
     }
+  
   }
   return (
     <center>
       {" "}
       <div className="form">
-        <form onSubmit={handleSubmit} action="POST">
+        <form action="POST" onSubmit={(e)=>submit(e)}>
           <div className="form-body">
             <table>
               <tr className="firstname input-box">
@@ -317,7 +324,7 @@ const Mechanicform = () => {
             </table>
           </div>
           <div class="footer">
-            <button onClick={() => submit()} type="submit" class="btn">
+            <button type="submit" class="btn">
               Register
             </button>
           </div>
