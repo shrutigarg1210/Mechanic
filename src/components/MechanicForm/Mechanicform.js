@@ -77,7 +77,7 @@ const Mechanicform = () => {
     else {
       // console.log("Trying axios");
       try {
-        await axios.post("http://localhost:8000/Mechanicform", {
+        let res = await axios.post("http://localhost:8000/Mechanicform", {
             firstname,
             lastname,
             email,
@@ -89,18 +89,25 @@ const Mechanicform = () => {
             district,
             state,
           })
-          .then((res) => {
-            console.log(res);
-            if (res.message === "user exists") {
-              alert("User Already Exist😁");
-            } else if (res.message === "new user added") {
-              navigate("/home");
-            }
+          .then((response) => {
+            // console.log(res);
+            // if (res.message === "user exists") {
+            //   alert("User Already Exist😁");
+            // } else if (res.message === "new user added") {
+            //   navigate("/home");
+            // }
+            return response;
           })
           .catch((error) => {
             console.log(error);
-            alert("Wrong Details");
           });
+
+          console.log(res);
+          if (res.message === "user exists") {
+              alert("User Already Exist😁");
+          } else if (res.message === "new user added") {
+            navigate("/home");
+          }
       } catch (e) {
         console.log(e);
       }
