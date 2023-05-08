@@ -1,6 +1,7 @@
 import React, { useState, setState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import useGeolocation from "react-hook-geolocation";
 import Navbar from "../Navbar";
 const Registrationform = () => {
   const navigate = useNavigate();
@@ -10,7 +11,9 @@ const Registrationform = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
+  const geolocation = useGeolocation();
+  const latitude = geolocation.latitude;
+  const longitude = geolocation.longitude;
   const handleInputChange = (e) => {
     const { id, value } = e.target;
     if (id === "firstName") {
@@ -37,25 +40,7 @@ const Registrationform = () => {
 
    
   };
-  // const handleSubmit = () => {
-  //   if (password === confirmPassword) {
-  //   } else {
-  //     console.log("Password does not match");
-  //   }
-  // };
-
-  // async function submit(){
-  //   navigate("/home");
-  //   await axios
-  //       .post("https://localhost:8000/RegistrationForm", {
-  //         firstname,
-  //         lastname,
-  //         phoneNumber,
-  //         email,
-  //         password,
-  //         confirmPassword  
-  //       })
-  // }
+  
   const handleSubmit = (e) => {
     // e.preventDefault();
     if (password === confirmPassword) {
@@ -66,7 +51,9 @@ const Registrationform = () => {
           phoneNumber,
           email,
           password,
-          confirmPassword
+          confirmPassword,
+          latitude,
+          longitude,
         })
         .then(() => {
           navigate("/home");
@@ -78,6 +65,9 @@ const Registrationform = () => {
       console.log("Password does not match");
     }
   };
+
+  
+
   return (
     <center>
       {" "}
@@ -197,6 +187,7 @@ const Registrationform = () => {
                   />
                 </td>
               </tr>
+              
             </table>
             <div className="footer">
               <button onClick={() => handleSubmit()} type="submit" class="btn">

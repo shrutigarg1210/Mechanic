@@ -131,6 +131,8 @@ app.post("/RegistrationForm",async(req,res)=>{
     email,
     password,
     confirmPassword,
+    latitude,
+    longitude,
   } = req.body;
 
   const data = {
@@ -140,6 +142,8 @@ app.post("/RegistrationForm",async(req,res)=>{
     email: email,
     password: password,
     confirmPassword:confirmPassword,
+    latitude:latitude,
+    longitude:longitude,
     
   };
   var newUser = new user({...req.body});
