@@ -255,8 +255,7 @@ const Mechanicform = () => {
                     onChange={(e) => handleInputChange(e)}
                   />
                 </td>
-                {/* </tr> */}
-                {/* <tr className="state input-box"> */}
+                
                 <td className="state input-box">
                   <label className="form_label" for="state">
                     State
@@ -294,8 +293,7 @@ const Mechanicform = () => {
                     onChange={(e) => handleInputChange(e)}
                   />
                 </td>
-                {/* </tr> */}
-
+              
                 <td className="district input-box">
                   <label className="form_label" for="district">
                     District
@@ -317,20 +315,18 @@ const Mechanicform = () => {
 
               <center>
                 <tr className="vehicle">
-                  {/* <td> */}
+              
                   <input type="checkbox" /> Truck
-                  {/* </td> */}
-                  {/* <td> */}
+                 
                   <input type="checkbox" /> Car
-                  {/* </td> */}
-                  {/* <td> */}
+                 
                   <input type="checkbox" /> Bike
-                  {/* </td> */}
+                  
                 </tr>
               </center>
             </table>
           </div>
-          <div class="footer">
+          <div className="footer">
             <button type="submit" class="btn">
               Register
             </button>
