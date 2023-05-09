@@ -1,16 +1,19 @@
 import React, { useState, setState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import useGeolocation from "react-hook-geolocation";
 import Navbar from "../Navbar";
 const Registrationform = () => {
   const navigate = useNavigate();
-  const [firstname, setfirstname] = useState("");
-  const [lastname, setlastname] = useState("");
+  const [firstName, setfirstname] = useState("");
+  const [lastName, setlastname] = useState("");
   const [phoneNumber, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
+  const geolocation = useGeolocation();
+  const latitude = geolocation.latitude;
+  const longitude = geolocation.longitude;
   const handleInputChange = (e) => {
     const { id, value } = e.target;
     if (id === "firstName") {
@@ -24,6 +27,9 @@ const Registrationform = () => {
     if (id === "email") {
       setEmail(value);
     }
+    if (id === "phoneNumber") {
+      setPhone(value);
+    }
 
     if (id === "password") {
       setPassword(value);
@@ -32,29 +38,35 @@ const Registrationform = () => {
       setConfirmPassword(value);
     }
 
-    if (id === "phoneNumber") {
-      setPhone(value);
-    }
+   
   };
-  const handleSubmit = () => {
+  
+  const handleSubmit = (e) => {
+    // e.preventDefault();
     if (password === confirmPassword) {
+      axios
+        .post("http://localhost:8000/RegistrationForm", {
+          firstName,
+          lastName,
+          phoneNumber,
+          email,
+          password,
+          confirmPassword,
+          latitude,
+          longitude,
+        })
+        .then(() => {
+          navigate("/home");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     } else {
       console.log("Password does not match");
     }
   };
 
-  async function submit(){
-    navigate("/home");
-    await axios
-        .post("https://localhost:8000/Mechanicform", {
-          firstname,
-          lastname,
-          phoneNumber,
-          email,
-          password,
-          confirmPassword  
-        })
-  }
+  
 
   return (
     <center>
@@ -63,7 +75,7 @@ const Registrationform = () => {
         <form onSubmit={handleSubmit} action="POST">
           <div className="form-body">
             <table>
-              <tr className="firstname input-box">
+              <tr className="firstName input-box">
                 <td>
                   <label className="form_label" for="firstName">
                     FirstName
@@ -74,7 +86,7 @@ const Registrationform = () => {
                   <input
                     className="form_input"
                     type="text"
-                    value={firstname}
+                    value={firstName}
                     required
                     onChange={(e) => handleInputChange(e)}
                     id="firstName"
@@ -91,7 +103,7 @@ const Registrationform = () => {
                   <input
                     className="form_input"
                     type="text"
-                    value={lastname}
+                    value={lastName}
                     required
                     onChange={(e) => handleInputChange(e)}
                     id="lastName"
@@ -175,9 +187,10 @@ const Registrationform = () => {
                   />
                 </td>
               </tr>
+              
             </table>
-            <div class="footer">
-              <button onClick={() => submit()} type="submit" class="btn">
+            <div className="footer">
+              <button onClick={() => handleSubmit()} type="submit" class="btn">
                 Register
               </button>
             </div>

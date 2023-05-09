@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import Mechanicform from "./components/MechanicForm/Mechanicform";
 import Layout from "./Layout";
 // import Userregistration from "./components/User/Userregistration";
-import RegistrationForm from "./components/User/RegistrationForm";
+import Registrationform from "./components/User/RegistrationForm";
 
 function App() {
   return (
@@ -33,11 +33,11 @@ function App() {
             }
           />
           <Route
-            path="/RegistrationForm"
+            path="/Registrationform"
             element={
               <Layout>
                 <Navbar />
-                <RegistrationForm />
+                <Registrationform />
               </Layout>
             }
           />

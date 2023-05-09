@@ -97,7 +97,7 @@ app.post("/Mechanicform", async (req, res) => {
     const user = await Collection.findOne({ email: email });
 
     if(user){
-      // return res.status(409).json({ message: "user exists" });
+      
       console.log("User found");
       return res.json({message: "user exists"})
     }
@@ -110,37 +110,53 @@ app.post("/Mechanicform", async (req, res) => {
         catch(e){
           console.log(e);
         }
-        // return res.status(201).json({ message: "new user added", newUser: oneCollection });
+      
         return res.json({ message: "new user added", newUser: oneCollection });
     }
   } catch (e) {
-    // return res.status(500).json({ message: "Internal server error" });
+    
     return res.json({message: "Internal server error"});
   }
 });
 
 
 
-// app.post("/RegistrationForm",async(req,res)=>{
+app.post("/RegistrationForm",async(req,res)=>{
 
-//   console.log(req.body);
-//   const {
-//     firstName,
-//     lastName,
-//     phoneNumber,
-//     email,
-//     password,
-//   } = req.body;
+  console.log(req.body);
+  const {
+    firstName,
+    lastName,
+    phoneNumber,
+    email,
+    password,
+    confirmPassword,
+    latitude,
+    longitude,
+  } = req.body;
 
-//   const data = {
-//     firstName: firstName,
-//     lastName: lastName,
-//     phoneNumber:phoneNumber,
-//     email: email,
-//     password: password,
+  const data = {
+    firstName: firstName,
+    lastName: lastName,
+    phoneNumber:phoneNumber,
+    email: email,
+    password: password,
+    confirmPassword:confirmPassword,
+    latitude:latitude,
+    longitude:longitude,
     
-//   };
-// })
+  };
+  var newUser = new user({...req.body});
+  
+  try {
+    newUser = await newUser.save();
+    console.log("User created");
+    return res.json({ message: "new user added", newUser: newUser });
+  } catch (error) {
+    console.log(error);
+    return res.json({ message: "Internal server error" });
+  }
+})
 
 app.listen(8000, () => {
   console.log("Server started on port 8000");
