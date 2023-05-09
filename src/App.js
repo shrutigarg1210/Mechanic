@@ -1,6 +1,7 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import About from "./components/AboutDetails/About";
+import Home from "./components/home/Home";
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import Mechanicform from "./components/MechanicForm/Mechanicform";
 import Layout from "./Layout";
@@ -17,7 +18,8 @@ function App() {
             element={
               <Layout>
                 <Navbar />
-                <h1>Hello</h1>
+                {/* <h1>Hello</h1> */}
+                <Home/>
               </Layout>
             }
           />
