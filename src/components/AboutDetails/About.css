@@ -1,0 +1,30 @@
+
+body{
+    background-image: url("About.jpg");
+    background-size: cover;
+    background-color: black;
+
+}
+.About{
+    /* background-image: url("About.jpg");
+    background-size: cover; */
+    background-color: black !important;
+}
+
+.au{
+    text-align: center;
+    color: rgb(226, 226, 224);
+    font-size: 2pc;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.about-data{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 9%;
+    font-size: 1pc;
+    font-weight: bolder;
+    color: rgb(67, 136, 201);
+    
+}

@@ -1,9 +1,10 @@
 import React from 'react'
 import Navbar from '../Navbar'
 import Aboutdata from './Aboutdata'
+import './About.css'
 const About = () => {
   return (
-    <div>
+    <div className='About'>
         <Navbar />
         <Aboutdata/>
     

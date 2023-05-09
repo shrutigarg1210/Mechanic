@@ -60,12 +60,11 @@ const Navbar = () => {
               </a>
               <ul className="dropdown-menu">
                 <li>
-                <Link to={"/RegistrationForm "}>User</Link>
-                    {/* User */}
+                <Link style={{ color: 'Black',textDecoration: 'none' }} to={"/RegistrationForm "}>User</Link>
                   
                 </li>
 
-                <Link to={"/Mechanicform "}>Mechanic</Link>
+                <Link style={{color: 'Black',textDecoration: 'none' }} to={"/Mechanicform "}>Mechanic</Link>
               </ul>
             </li>
           </ul>

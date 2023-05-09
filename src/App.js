@@ -7,6 +7,7 @@ import Mechanicform from "./components/MechanicForm/Mechanicform";
 import Layout from "./Layout";
 // import Userregistration from "./components/User/Userregistration";
 import Registrationform from "./components/User/RegistrationForm";
+import Services from "./components/Service/Services";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
             }
           />
           <Route path="/about" element={<About />} />
+          <Route path="/Services" element={<Services />} />
         </Routes>
       </BrowserRouter>
     </div>

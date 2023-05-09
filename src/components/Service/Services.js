@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../Navbar'
-import Servicesdata from '../components/Servicesdata'
+import Servicesdata from './Servicesdata'
 const Services = () => {
   return (
     <div >
