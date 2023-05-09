@@ -26,6 +26,7 @@ const collectionSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
+    unique: true,
   },
   password: {
     type: String,
@@ -60,6 +61,14 @@ const collectionSchema = new mongoose.Schema({
   state: {
     type: String,
     required: true,
+  },
+
+  latitude: {
+    type: Number,
+  },
+
+  longitude: {
+    type: Number,
   },
 });
 

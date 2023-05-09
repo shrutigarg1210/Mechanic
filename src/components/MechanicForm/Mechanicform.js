@@ -62,63 +62,62 @@ const Mechanicform = () => {
 
   const handleSubmit = () => {
     if (password === confirmPassword) {
-      console.log("Wrong Details")
+      console.log("Wrong Details");
     } else {
       console.log("Password does not match");
     }
   };
 
   async function submit(e) {
-    e.preventDefault();
+    // e.preventDefault();
     // navigate("/home");
     if (password !== confirmPassword) {
       alert("Password does not match");
-    } 
-    else {
+    } else {
       // console.log("Trying axios");
       try {
         let res = await axios.post("http://localhost:8000/Mechanicform", {
-            firstname,
-            lastname,
-            email,
-            password,
-            confirmPassword,
-            phoneNumber,
-            city,
-            address,
-            district,
-            state,
-          })
-          .then((response) => {
-            // console.log(res);
-            // if (res.message === "user exists") {
-            //   alert("User Already Exist😁");
-            // } else if (res.message === "new user added") {
-            //   navigate("/home");
-            // }
-            return response;
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-
-          console.log(res);
-          if (res.message === "user exists") {
-              alert("User Already Exist😁");
-          } else if (res.message === "new user added") {
-            navigate("/home");
-          }
+          firstname,
+          lastname,
+          email,
+          password,
+          confirmPassword,
+          phoneNumber,
+          city,
+          address,
+          district,
+          state,
+        });
+        // .then((res) => {
+        //   console.log(res);
+        if (res.data.message === "user exists") {
+          alert("User Already Exist😁");
+        } else if (res.data.message === "new user added") {
+          navigate("/home");
+        }
+        // return res;
       } catch (e) {
+        // )
+        // .catch((error) => {
+        //   console.log(error);
+        // });
+
+        // console.log(res);
+        // if (res.message === "user exists") {
+        //     alert("User Already Exist😁");
+        // } else if (res.message === "new user added") {
+        //   navigate("/home");
+        // }
+        // }
         console.log(e);
       }
     }
-  
   }
   return (
     <center>
       {" "}
       <div className="form">
-        <form action="POST" onSubmit={(e)=>submit(e)}>
+        <form action="POST" onSubmit={(e) => submit(e)}>
           <div className="form-body">
             <table>
               <tr className="firstname input-box">
@@ -255,7 +254,7 @@ const Mechanicform = () => {
                     onChange={(e) => handleInputChange(e)}
                   />
                 </td>
-                
+
                 <td className="state input-box">
                   <label className="form_label" for="state">
                     State
@@ -293,7 +292,7 @@ const Mechanicform = () => {
                     onChange={(e) => handleInputChange(e)}
                   />
                 </td>
-              
+
                 <td className="district input-box">
                   <label className="form_label" for="district">
                     District
@@ -315,13 +314,9 @@ const Mechanicform = () => {
 
               <center>
                 <tr className="vehicle">
-              
                   <input type="checkbox" /> Truck
-                 
                   <input type="checkbox" /> Car
-                 
                   <input type="checkbox" /> Bike
-                  
                 </tr>
               </center>
             </table>

@@ -1,16 +1,30 @@
 const express = require("express");
 const Collection = require("./mechanicmodel");
-const user = require("./usermodel")
+const user = require("./usermodel");
 const cors = require("cors");
 const app = express();
 const mongoose = require("mongoose");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+const axios = require("axios");
 
+mongoose
+  .connect(
+    "mongodb+srv://shrutigarg9973:938OtZ2264YlOJhT@form.lhujlsi.mongodb.net/register"
+  ) //
+  .then(() => {
+    console.log("mongoDb Connected");
+  })
+  .catch((error) => {
+    console.log(error);
+    console.log("mongoDb Connection Failed");
+  });
+
+// for mongodb Compass
 // mongoose
 //   .connect(
-//     "mongodb+srv://shrutigarg9973:938OtZ2264YlOJhT@form.lhujlsi.mongodb.net/register"
+//     "mongodb://0.0.0.0:27017/mechanic"
 //   )//
 //   .then(() => {
 //     console.log("mongoDb Connected");
@@ -19,20 +33,6 @@ app.use(cors());
 //     console.log(error);
 //     console.log("mongoDb Connection Failed");
 //   });
-
-
-// for mongodb Compass
-mongoose
-  .connect(
-    "mongodb://0.0.0.0:27017/mechanic"
-  )//
-  .then(() => {
-    console.log("mongoDb Connected");
-  })
-  .catch((error) => {
-    console.log(error);
-    console.log("mongoDb Connection Failed");
-  });
 
 app.get("/", (req, res) => {
   return res.json({ status: "success" });
@@ -80,49 +80,64 @@ app.post("/Mechanicform", async (req, res) => {
     state,
   } = req.body;
 
-  const data = {
-    firstname: firstname,
-    lastname: lastname,
-    email: email,
-    password: password,
-    confirmPassword: confirmPassword,
-    phoneNumber: phoneNumber,
-    city: city,
-    address: address,
-    district: district,
-    state: state,
-  };
+  const API_KEY = "u8NByuB56ERnwEMvOATljl6Ud7GIeTMA";
+  const URL = `http://www.mapquestapi.com/geocoding/v1/address?key=${API_KEY}&location=${address},${city},${state}`;
+
+  // const data = {
+  // firstname: firstname,
+  // lastname: lastname,
+  // email: email,
+  // password: password,
+  // confirmPassword: confirmPassword,
+  // phoneNumber: phoneNumber,
+  // city: city,
+  // address: address,
+  // district: district,
+  // state: state,
+  // latitude: latitude, // Add the latitude to the database
+  // longitude: longitude, // Add the longitude to the database
+  // };
 
   try {
     const user = await Collection.findOne({ email: email });
 
-    if(user){
-      
+    if (user) {
       console.log("User found");
-      return res.json({message: "user exists"})
-    }
-    else{
-        try{
-          var oneCollection = new Collection({...req.body});
-          oneCollection = await oneCollection.save();
-          console.log("Collection created");
-        }
-        catch(e){
-          console.log(e);
-        }
-      
-        return res.json({ message: "new user added", newUser: oneCollection });
+      return res.json({ message: "user exists" });
+    } else {
+      try {
+        const response = await axios.get(URL);
+        const { lat, lng } = response.data.results[0].locations[0].latLng;
+
+        // var oneCollection = new Collection({...req.body});
+        var oneCollection = new Collection({
+          firstname: firstname,
+          lastname: lastname,
+          email: email,
+          password: password,
+          confirmPassword: confirmPassword,
+          phoneNumber: phoneNumber,
+          city: city,
+          address: address,
+          district: district,
+          state: state,
+          latitude: lat, // Add the latitude to the database
+          longitude: lng, // Add the longitude to the database
+        });
+        oneCollection = await oneCollection.save();
+        console.log("Collection created");
+      } catch (e) {
+        console.log(e);
+      }
+
+      return res.json({ message: "new user added", newUser: oneCollection });
     }
   } catch (e) {
-    
-    return res.json({message: "Internal server error"});
+    return res.json({ message: "Internal server error" });
   }
 });
 
-
-
-app.post("/RegistrationForm",async(req,res)=>{
-
+app.post("/RegistrationForm", async (req, res) => {
   console.log(req.body);
   const {
     firstName,
@@ -138,16 +153,15 @@ app.post("/RegistrationForm",async(req,res)=>{
   const data = {
     firstName: firstName,
     lastName: lastName,
-    phoneNumber:phoneNumber,
+    phoneNumber: phoneNumber,
     email: email,
     password: password,
-    confirmPassword:confirmPassword,
-    latitude:latitude,
-    longitude:longitude,
-    
+    confirmPassword: confirmPassword,
+    latitude: latitude,
+    longitude: longitude,
   };
-  var newUser = new user({...req.body});
-  
+  var newUser = new user({ ...req.body });
+
   try {
     newUser = await newUser.save();
     console.log("User created");
@@ -156,7 +170,7 @@ app.post("/RegistrationForm",async(req,res)=>{
     console.log(error);
     return res.json({ message: "Internal server error" });
   }
-})
+});
 
 app.listen(8000, () => {
   console.log("Server started on port 8000");

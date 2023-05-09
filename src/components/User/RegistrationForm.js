@@ -37,14 +37,12 @@ const Registrationform = () => {
     if (id === "confirmPassword") {
       setConfirmPassword(value);
     }
-
-   
   };
-  
+
   const handleSubmit = (e) => {
     // e.preventDefault();
     if (password === confirmPassword) {
-      axios
+      let res = axios
         .post("http://localhost:8000/RegistrationForm", {
           firstName,
           lastName,
@@ -56,7 +54,9 @@ const Registrationform = () => {
           longitude,
         })
         .then(() => {
-          navigate("/home");
+          if (res.data.message === "new user added") {
+            navigate("/home");
+          }
         })
         .catch((error) => {
           console.log(error);
@@ -65,8 +65,6 @@ const Registrationform = () => {
       console.log("Password does not match");
     }
   };
-
-  
 
   return (
     <center>
@@ -187,7 +185,6 @@ const Registrationform = () => {
                   />
                 </td>
               </tr>
-              
             </table>
             <div className="footer">
               <button onClick={() => handleSubmit()} type="submit" class="btn">
