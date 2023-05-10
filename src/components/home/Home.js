@@ -37,8 +37,10 @@ const Home = () => {
               //src="https://w0.peakpx.com/wallpaper/475/650/HD-wallpaper-3d-car-parts-car-repair-concepts-car-parts-sales-3d-generator-oil-filter-brake-pads-battery-shock-absorbers.jpg"
               src="https://w0.peakpx.com/wallpaper/782/289/HD-wallpaper-car-got-breakdown-artist-artwork-digital-art-deviantart.jpg"
               style={{
+                marginTop:"2%",
+                marginLeft: "5%",
                 maxHeight: "100%",
-                maxWidth: "100%",
+                maxWidth: "90%",
                 objectFit: "cover",
               }}
               class="d-block w-100"
@@ -64,7 +66,7 @@ const Home = () => {
               src="https://w0.peakpx.com/wallpaper/445/465/HD-wallpaper-car-repair.jpg"
               style={{
                 marginLeft: "15%",
-                maxHeight: "95%",
+                maxHeight: "100%",
                 maxWidth: "70%",
                 objectFit: "cover",
               }}
