@@ -1,4 +1,42 @@
-.user{
-    color: aliceblue;
-    text-decoration: none;
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Darumadrop+One&display=swap");
+.user {
+  color: aliceblue;
+  text-decoration: none;
 }
+
+.navbar-brand {
+  font-family: "Darumadrop One", cursive;
+  font-size: 1.8rem;
+}
+
+.container-fluid {
+  font-size: 1.2rem;
+  color: black;
+  font-weight: 500;
+}
+
+.M-R :hover {
+    /* background-color: rgb(151, 82, 126); */
+    color: #aa5ef6;
+
+}
+.m-login {
+  margin-right: 10px;
+  border-radius: 0;
+}
+
+.u-login {
+  margin-left: 0px;
+  box-sizing: content-box;
+  border-radius: 0;
+}
+.login :hover{
+    background-color: rgb(151, 82, 126);
+    color: rgb(211, 206, 216);
+    /* border-radius: 0; */
+}
+
+.u-login:hover {
+    background-color: rgb(151, 82, 126);
+    color: rgb(211, 206, 216);
+  }

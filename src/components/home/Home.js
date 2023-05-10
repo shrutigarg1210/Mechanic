@@ -12,7 +12,12 @@ const Home = () => {
       <div
         id="carouselExample"
         class="carousel slide"
-        style={{ marginTop:"1.5%" , marginLeft:"20.5%", height: "500px", width: "950px" }}
+        style={{
+          marginTop: "1.5%",
+          marginLeft: "20.5%",
+          height: "500px",
+          width: "950px",
+        }}
       >
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -43,9 +48,9 @@ const Home = () => {
           <div class="carousel-item">
             <img
               // src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-              src ="https://w0.peakpx.com/wallpaper/676/21/HD-wallpaper-car-repair-cars-tools-artwork-toolbox-mechanic.jpg"
+              src="https://w0.peakpx.com/wallpaper/676/21/HD-wallpaper-car-repair-cars-tools-artwork-toolbox-mechanic.jpg"
               style={{
-                marginLeft:"5%",
+                marginLeft: "5%",
                 maxHeight: "100%",
                 maxWidth: "90%",
                 objectFit: "cover",
@@ -58,9 +63,9 @@ const Home = () => {
             <img
               src="https://w0.peakpx.com/wallpaper/445/465/HD-wallpaper-car-repair.jpg"
               style={{
-                marginLeft:"14%",
-                maxHeight: "85%",
-                maxWidth: "75%",
+                marginLeft: "15%",
+                maxHeight: "95%",
+                maxWidth: "70%",
                 objectFit: "cover",
               }}
               class="d-block w-100"

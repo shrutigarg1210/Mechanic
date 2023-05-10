@@ -1,4 +1,5 @@
 import React from "react";
+import "./Navbar.css";
 import {
   Link,
   BrowserRouter as Router,
@@ -10,7 +11,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg  navbar-light">
       <div className="container-fluid">
-        <a  className="navbar-brand" href="/">
+        <a className="navbar-brand" href="/">
           OnTheGoMechanic
         </a>
         <button
@@ -30,11 +31,7 @@ const Navbar = () => {
         >
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink
-                to={"/"}
-                className="nav-link active"
-                aria-current="page"
-              >
+              <NavLink to={"/"} className="nav-link active" aria-current="page">
                 Home
               </NavLink>
             </li>
@@ -60,15 +57,24 @@ const Navbar = () => {
               </a>
               <ul className="dropdown-menu">
                 <li>
-                <Link style={{ color: 'Black',textDecoration: 'none' }} to={"/RegistrationForm "}>User</Link>
-                  
+                  <Link className="M-R"
+                    style={{ color: "rgb(199 21 144)", textDecoration: "none" }}
+                    to={"/RegistrationForm "}
+                  >
+                    User
+                  </Link>
                 </li>
-
-                <Link style={{color: 'Black',textDecoration: 'none' }} to={"/Mechanicform "}>Mechanic</Link>
+                
+                <Link className="M-R"
+                  style={{ color: "rgb(199 21 144)", textDecoration: "none" }}
+                  to={"/Mechanicform "}
+                >
+                  Mechanic
+                </Link>
               </ul>
             </li>
           </ul>
-
+        <div className="login"> 
           <button className="m-login" type="submit">
             Mechanic Login
           </button>
@@ -76,6 +82,7 @@ const Navbar = () => {
           <button className="u-login" type="submit">
             User Login
           </button>
+          </div>
 
           {/* </form> */}
         </div>
