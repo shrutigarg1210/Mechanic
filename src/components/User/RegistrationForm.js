@@ -70,7 +70,7 @@ const Registrationform = () => {
     <center>
       {" "}
       <div className="form">
-        <form onSubmit={handleSubmit} action="POST">
+        <form onSubmit={handleSubmit} action="/home">
           <div className="form-body">
             <table>
               <tr className="firstName input-box">

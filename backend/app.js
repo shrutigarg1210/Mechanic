@@ -77,7 +77,8 @@ app.post("/Mechanicform", async (req, res) => {
     city,
     address,
     district,
-    state,
+    state
+    
   } = req.body;
 
   const API_KEY = "u8NByuB56ERnwEMvOATljl6Ud7GIeTMA";
@@ -107,7 +108,8 @@ app.post("/Mechanicform", async (req, res) => {
     } else {
       try {
         const response = await axios.get(URL);
-        const { lat, lng } = response.data.results[0].locations[0].latLng;
+        const { lat, lng } =
+          response.data.results[0].locations[0].latLng;
 
         // var oneCollection = new Collection({...req.body});
         var oneCollection = new Collection({
@@ -122,7 +124,7 @@ app.post("/Mechanicform", async (req, res) => {
           district: district,
           state: state,
           latitude: lat, // Add the latitude to the database
-          longitude: lng, // Add the longitude to the database
+          longitude: lng, //
         });
         oneCollection = await oneCollection.save();
         console.log("Collection created");

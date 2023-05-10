@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Mechanicform.css";
 import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../Navbar";
+import './mechanic.svg'
 const Mechanicform = () => {
   const navigate = useNavigate();
   const [firstname, setfirstname] = useState("");
@@ -93,7 +94,7 @@ const Mechanicform = () => {
         if (res.data.message === "user exists") {
           alert("User Already Exist😁");
         } else if (res.data.message === "new user added") {
-          navigate("/home");
+          navigate("/");
         }
         // return res;
       } catch (e) {
@@ -117,8 +118,9 @@ const Mechanicform = () => {
     <center>
       {" "}
       <div className="form">
-        <form action="POST" onSubmit={(e) => submit(e)}>
+        <form action="/" onSubmit={(e) => submit(e)}>
           <div className="form-body">
+           
             <table>
               <tr className="firstname input-box">
                 <td>
