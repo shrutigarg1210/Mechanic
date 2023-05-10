@@ -119,6 +119,7 @@ const Mechanicform = () => {
       {" "}
       <div className="form">
         <form action="/" onSubmit={(e) => submit(e)}>
+          <h3>Mechanic Registration Form</h3>
           <div className="form-body">
            
             <table>
@@ -313,14 +314,14 @@ const Mechanicform = () => {
                   />
                 </td>
               </tr>
-
+{/* 
               <center>
                 <tr className="vehicle">
                   <input type="checkbox" /> Truck
                   <input type="checkbox" /> Car
                   <input type="checkbox" /> Bike
                 </tr>
-              </center>
+              </center> */}
             </table>
           </div>
           <div className="footer">

@@ -71,6 +71,7 @@ const Registrationform = () => {
       {" "}
       <div className="form">
         <form onSubmit={handleSubmit} action="/home">
+          <h3>User Registration Form</h3>
           <div className="form-body">
             <table>
               <tr className="firstName input-box">

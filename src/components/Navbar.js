@@ -8,9 +8,9 @@ import {
 } from "react-router-dom";
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
+    <nav className="navbar navbar-expand-lg  navbar-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <a  className="navbar-brand" href="/">
           OnTheGoMechanic
         </a>
         <button
