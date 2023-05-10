@@ -193,7 +193,7 @@ const Mechanicform = () => {
                     required
                     maxLength={10}
                     pattern="[1-9]{1}[0-9]{9}"
-                    placeholder="9876543210"
+                    placeholder="xxxxxxxxxx"
                     value={phoneNumber}
                     onChange={(e) => handleInputChange(e)}
                   />
@@ -213,6 +213,7 @@ const Mechanicform = () => {
                     type="password"
                     id="password"
                     required
+                    maxLength={8}
                     placeholder="password"
                     value={password}
                     onChange={(e) => handleInputChange(e)}
@@ -231,6 +232,7 @@ const Mechanicform = () => {
                     type="password"
                     id="confirmPassword"
                     required
+                    maxLength={8}
                     placeholder="password"
                     value={confirmPassword}
                     onChange={(e) => handleInputChange(e)}

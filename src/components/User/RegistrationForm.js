@@ -70,7 +70,7 @@ const Registrationform = () => {
     <center>
       {" "}
       <div className="form">
-        <form onSubmit={handleSubmit} action="/home">
+        <form onSubmit={handleSubmit} action="/">
           <h3>User Registration Form</h3>
           <div className="form-body">
             <table>

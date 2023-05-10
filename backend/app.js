@@ -1,9 +1,14 @@
 const express = require("express");
 const Collection = require("./mechanicmodel");
 const user = require("./usermodel");
+const login = require("./loginmodel")
 const cors = require("cors");
 const app = express();
 const mongoose = require("mongoose");
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+const jwt = require('jsonwebtoken');
+const secretKey = 'e7062355b870488c9ddc3ca783ab8710be261a10e3976a1e61a02377fbbaec83';
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -38,7 +43,8 @@ app.get("/", (req, res) => {
   return res.json({ status: "success" });
 });
 
-app.post("/Mechaniclogin", async (req, res) => {
+app.post("/Mechanicform", async (req, res) => {
+  console.log(req.body);
   const {
     firstname,
     lastname,
@@ -52,52 +58,8 @@ app.post("/Mechaniclogin", async (req, res) => {
     state,
   } = req.body;
 
-  try {
-    const user = await Collection.findOne({ email: email });
-
-    if (check) {
-      res.json("exist");
-    } else {
-      res.json("not exist");
-    }
-  } catch (e) {
-    res.json("not exist");
-  }
-});
-
-app.post("/Mechanicform", async (req, res) => {
-  console.log(req.body);
-  const {
-    firstname,
-    lastname,
-    email,
-    password,
-    confirmPassword,
-    phoneNumber,
-    city,
-    address,
-    district,
-    state
-    
-  } = req.body;
-
   const API_KEY = "u8NByuB56ERnwEMvOATljl6Ud7GIeTMA";
   const URL = `http://www.mapquestapi.com/geocoding/v1/address?key=${API_KEY}&location=${address},${city},${state}`;
-
-  // const data = {
-  // firstname: firstname,
-  // lastname: lastname,
-  // email: email,
-  // password: password,
-  // confirmPassword: confirmPassword,
-  // phoneNumber: phoneNumber,
-  // city: city,
-  // address: address,
-  // district: district,
-  // state: state,
-  // latitude: latitude, // Add the latitude to the database
-  // longitude: longitude, // Add the longitude to the database
-  // };
 
   try {
     const user = await Collection.findOne({ email: email });
@@ -108,24 +70,35 @@ app.post("/Mechanicform", async (req, res) => {
     } else {
       try {
         const response = await axios.get(URL);
-        const { lat, lng } =
-          response.data.results[0].locations[0].latLng;
+        const { lat, lng } = response.data.results[0].locations[0].latLng;
 
         // var oneCollection = new Collection({...req.body});
+        const mechanicPassword = req.body.password;
+
+        // encrypt the mechanic's password using bcrypt
+        const encryptedMechanicPassword = await bcrypt.hash(mechanicPassword, saltRounds);
+
         var oneCollection = new Collection({
           firstname: firstname,
           lastname: lastname,
           email: email,
-          password: password,
-          confirmPassword: confirmPassword,
+          password: encryptedMechanicPassword,
+          confirmPassword: encryptedMechanicPassword,
           phoneNumber: phoneNumber,
           city: city,
           address: address,
           district: district,
           state: state,
           latitude: lat, // Add the latitude to the database
-          longitude: lng, //
+          longitude: lng, //Add the longitude to the database
         });
+
+        // Create token
+        const token = jwt.sign(email,secretKey);
+        
+        // save user token
+        oneCollection.token = token;
+
         oneCollection = await oneCollection.save();
         console.log("Collection created");
       } catch (e) {
@@ -138,6 +111,39 @@ app.post("/Mechanicform", async (req, res) => {
     return res.json({ message: "Internal server error" });
   }
 });
+
+app.get("/Mechaniclogin", (req, res) => {
+	res.sendFile(__dirname + "/Mechaniclogin.js");
+});
+
+app.post("/Mechaniclogin", async (req, res) => {
+  const {
+    email,
+    password,
+  } = req.body;
+
+ const findmechanic = Collection.find(u => u.email === email);
+
+ if (!findmechanic) {
+  return res.status(401).send("Invalid email or password");
+}
+
+// Compare password with the hashed password in the database
+const passwordMatch = await bcrypt.compare(password, findmechanic.password);
+
+if (!passwordMatch) {
+  return res.status(401).send("Invalid email or password");
+}
+// Generate JWT token with user's email as payload
+const token = jwt.sign({ email: findmechanic.email }, secretKey);
+
+// Set token as cookie for future requests
+res.cookie("token", token, { httpOnly: true });
+
+// Redirect user to the dashboard
+res.redirect("/");
+});
+
 
 app.post("/RegistrationForm", async (req, res) => {
   console.log(req.body);
@@ -152,18 +158,27 @@ app.post("/RegistrationForm", async (req, res) => {
     longitude,
   } = req.body;
 
-  const data = {
+  const userPassword = req.body.password;
+
+  // encrypt the user's password using bcrypt
+  const encrypteduserPassword = await bcrypt.hash(userPassword, saltRounds);
+
+  var newUser = new user({
+
     firstName: firstName,
     lastName: lastName,
     phoneNumber: phoneNumber,
     email: email,
-    password: password,
-    confirmPassword: confirmPassword,
+    password: encrypteduserPassword,
+    confirmPassword: encrypteduserPassword,
     latitude: latitude,
     longitude: longitude,
-  };
-  var newUser = new user({ ...req.body });
-
+  });
+  // Create token
+  const token = jwt.sign(email,secretKey);
+        
+  // save user token
+  newUser.token = token;
   try {
     newUser = await newUser.save();
     console.log("User created");

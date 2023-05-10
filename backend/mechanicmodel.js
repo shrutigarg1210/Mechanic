@@ -70,6 +70,10 @@ const collectionSchema = new mongoose.Schema({
   longitude: {
     type: Number,
   },
+  token: 
+  { 
+    type: String
+ },
 });
 
 const Collection = mongoose.model("Collection", collectionSchema);

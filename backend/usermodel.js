@@ -33,6 +33,10 @@ const userSchema = new mongoose.Schema({
   longitude:{
     type: Number,
   },
+  token: 
+  { 
+    type: String
+ },
 });
 
 const user = mongoose.model("userSchema", userSchema);

@@ -4,7 +4,7 @@ import axios from "axios";
 // the process of making HTTP requests in JavaScript applications.
 import { useNavigate, Link } from "react-router-dom";
 const Mechaniclogin = () => {
-  const history = useNavigate();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,9 +12,9 @@ const Mechaniclogin = () => {
     e.preventDefault();
 
     try {
-      await axios
+      let res = await axios
         .post(
-          "mongodb+srv://shrutigarg749:<tiJsT7pltNcE9Nip>@cluster0.f0h3eyd.mongodb.net/test",
+          "http://localhost:8000/Mechaniclogin",
           {
             email,
             password,
@@ -22,7 +22,7 @@ const Mechaniclogin = () => {
         )
         .then((res) => {
           if ((res.data = "exist")) {
-            history("/home/Home", { state: { id: email } });
+            navigate("/");
           } else if ((res.data = "not exist")) {
             alert("User Not Found🙁");
           }

@@ -1,10 +1,20 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import image from "./About.jpg";
 import "./home.css";
 
 const Home = () => {
   const location = useLocation();
+  const carouselRef = useRef(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      carouselRef.current.querySelector(".carousel-control-next").click();
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div>
       {/* Hello {location.state.id} */}
@@ -12,6 +22,7 @@ const Home = () => {
       <div
         id="carouselExample"
         class="carousel slide"
+        ref={carouselRef}
         style={{
           marginTop: "1.5%",
           marginLeft: "20.5%",
