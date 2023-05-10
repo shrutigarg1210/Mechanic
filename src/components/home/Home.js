@@ -20,19 +20,8 @@ const Home = () => {
         }}
       >
         <div class="carousel-inner">
+       
           <div class="carousel-item active">
-            <img
-              src={image}
-              style={{
-                maxHeight: "100%",
-                maxWidth: "100%",
-                objectFit: "cover",
-              }}
-              class="d-block w-100"
-              alt="HEH"
-            />
-          </div>
-          <div class="carousel-item">
             <img
               //src="https://w0.peakpx.com/wallpaper/475/650/HD-wallpaper-3d-car-parts-car-repair-concepts-car-parts-sales-3d-generator-oil-filter-brake-pads-battery-shock-absorbers.jpg"
               src="https://w0.peakpx.com/wallpaper/782/289/HD-wallpaper-car-got-breakdown-artist-artwork-digital-art-deviantart.jpg"
@@ -47,6 +36,18 @@ const Home = () => {
               alt="NO image"
             />
           </div>
+          {/* <div class="carousel-item active">
+            <img
+              src={image}
+              style={{
+                maxHeight: "100%",
+                maxWidth: "100%",
+                objectFit: "cover",
+              }}
+              class="d-block w-100"
+              alt="HEH"
+            />
+          </div> */}
           <div class="carousel-item">
             <img
               // src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"

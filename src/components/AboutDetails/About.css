@@ -2,13 +2,25 @@
 body{
     background-image: url("About.jpg");
     background-size: cover;
-    background-color: black;
+    /* background-color: black; */
 
+}
+.MainCard{
+    display: flex;
+    justify-content: space-between;
+}
+.left{
+    width: 35vw;
+    height: 50px;
+    margin-left: 50px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px;
 }
 .About{
     /* background-image: url("About.jpg");
     background-size: cover; */
-    background-color: black !important;
+    /* background-color: black ; */
 }
 
 .au{

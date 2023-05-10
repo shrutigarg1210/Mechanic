@@ -7,7 +7,7 @@ const About = () => {
     <div className='About'>
         <Navbar />
         <Aboutdata/>
-    
+        
         </div>
   )
 }

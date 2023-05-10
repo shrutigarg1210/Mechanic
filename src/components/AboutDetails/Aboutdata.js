@@ -3,7 +3,23 @@ import "./About.css";
 
 const Aboutdata = () => {
   return (
-    <div className="about-data">
+    <div className="MainCard">
+      <div className="left">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="https://images.unsplash.com/photo-1590698933947-a202b069a861?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" alt="First slide"/>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="..." alt="Second slide"/>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="..." alt="Third slide"/>
+      </div>
+    </div>
+    </div>
+      </div>
+    <div className="about-data right">
       <p>
                     <p className="au">About us</p><br/>
                     <br/>
@@ -27,6 +43,7 @@ const Aboutdata = () => {
         get the best service from us. Our coustomer care service will<br />
         be the best we can provide.
       </p>
+    </div>
     </div>
   );
 };
