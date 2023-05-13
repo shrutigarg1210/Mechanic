@@ -78,7 +78,7 @@ const Userlogin = () => {
         </form>
         <center>
         <p>OR</p>
-        <Link to="/MechanicForm/Mechanicform">SignUp Page😍</Link>
+        <Link to="../RegistrationForm">SignUp Page😍</Link>
         </center>
       
       </div>

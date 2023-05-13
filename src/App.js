@@ -4,13 +4,13 @@ import About from "./components/AboutDetails/About";
 import Home from "./components/home/Home";
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import Mechanicform from "./components/MechanicForm/Mechanicform";
-import './components/MechanicLogin/Mechaniclogin';
+import "./components/MechanicLogin/Mechaniclogin";
 import Layout from "./Layout";
 // import Userregistration from "./components/User/Userregistration";
 import Registrationform from "./components/User/RegistrationForm";
 import Services from "./components/Service/Services";
 import Mechaniclogin from "./components/MechanicLogin/Mechaniclogin";
-
+import Userlogin from "./components/UserLogin/Userlogin"
 function App() {
   return (
     <div>
@@ -22,7 +22,7 @@ function App() {
               <Layout>
                 <Navbar />
                 {/* <h1>Hello</h1> */}
-                <Home/>
+                <Home />
               </Layout>
             }
           />
@@ -55,7 +55,8 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/Services" element={<Services />} />
-          <Route path="/Mechaniclogin" element={<Mechaniclogin/>}/>
+          <Route path="/Mechaniclogin" element={<Mechaniclogin />} />
+          <Route path="/Userlogin" element={<Userlogin />} />
         </Routes>
       </BrowserRouter>
     </div>

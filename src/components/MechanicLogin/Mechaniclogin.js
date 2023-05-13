@@ -40,52 +40,50 @@ const Mechaniclogin = () => {
 
   return (
     // <center>
-      <div id="login">
-      <center><h3>LOGIN</h3></center>  
-        <form>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">
-              Email address
-            </label>
-            <center>
+    <div id="login">
+      <center>
+        <h3>LOGIN</h3>
+      </center>
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">
+            Email address
+          </label>
+          <center>
             <input
               type="email"
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />
-            </center>
-          
-            <div id="emailHelp" class="form-text">
-              We'll never share your email with anyone else.
-            </div>
+          </center>
+
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
           </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">
-              Password
-            </label>
-            <input
-              type="password"
-              class="form-control"
-              id="exampleInputPassword1"
-            />
-          </div>
-          <center>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">
+            Password
+          </label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+        <center>
           <button type="submit" class="btn btn-primary">
             Submit
           </button>
-          </center>
-          
-        </form>
-        <center>
-        <p>OR</p>
-        <Link to="/MechanicForm/Mechanicform">SignUp Page😍</Link>
         </center>
-      
-      </div>
-    //  </center> 
-
-
+      </form>
+      <center>
+        <p>OR</p>
+        <Link to="../Mechanicform">SignUp Page😍</Link>
+      </center>
+    </div>
+    //  </center>
   );
 };
 
