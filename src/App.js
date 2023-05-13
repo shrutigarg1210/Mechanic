@@ -10,7 +10,7 @@ import Layout from "./Layout";
 import Registrationform from "./components/User/RegistrationForm";
 import Services from "./components/Service/Services";
 import Mechaniclogin from "./components/MechanicLogin/Mechaniclogin";
-import Userlogin from "./components/UserLogin/Userlogin"
+import Userlogin from "./components/userlogin/Userlogin"
 function App() {
   return (
     <div>
