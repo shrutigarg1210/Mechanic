@@ -4,10 +4,12 @@ import About from "./components/AboutDetails/About";
 import Home from "./components/home/Home";
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import Mechanicform from "./components/MechanicForm/Mechanicform";
+import './components/MechanicLogin/Mechaniclogin';
 import Layout from "./Layout";
 // import Userregistration from "./components/User/Userregistration";
 import Registrationform from "./components/User/RegistrationForm";
 import Services from "./components/Service/Services";
+import Mechaniclogin from "./components/MechanicLogin/Mechaniclogin";
 
 function App() {
   return (
@@ -53,6 +55,7 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/Services" element={<Services />} />
+          <Route path="/Mechaniclogin" element={<Mechaniclogin/>}/>
         </Routes>
       </BrowserRouter>
     </div>

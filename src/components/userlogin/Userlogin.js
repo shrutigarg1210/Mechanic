@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./mechanic.css";
+import "./user.css";
 // //Axios is a powerful and flexible library that simplifies
 // // the process of making HTTP requests in JavaScript applications.
 import { useNavigate, Link } from "react-router-dom";
-const Mechaniclogin = () => {
+const Userlogin = () => {
   //   const navigate = useNavigate();
   //   const [email, setEmail] = useState("");
   //   const [password, setPassword] = useState("");
@@ -41,7 +41,6 @@ const Mechaniclogin = () => {
   return (
     // <center>
       <div id="login">
-      <center><h3>LOGIN</h3></center>  
         <form>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">
@@ -89,4 +88,4 @@ const Mechaniclogin = () => {
   );
 };
 
-export default Mechaniclogin;
+export default Userlogin;

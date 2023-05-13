@@ -21,3 +21,8 @@
     padding: 0;
     position: fixed;
 } */
+
+.carousel-inner
+{
+    border-radius: 5px;
+}

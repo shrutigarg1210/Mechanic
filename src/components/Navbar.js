@@ -1,5 +1,6 @@
 import React from "react";
 import "./Navbar.css";
+// import "./MechanicLogin/Mechaniclogin";
 import {
   Link,
   BrowserRouter as Router,
@@ -57,15 +58,17 @@ const Navbar = () => {
               </a>
               <ul className="dropdown-menu">
                 <li>
-                  <Link className="M-R"
+                  <Link
+                    className="M-R"
                     style={{ color: "rgb(199 21 144)", textDecoration: "none" }}
                     to={"/RegistrationForm "}
                   >
                     User
                   </Link>
                 </li>
-                
-                <Link className="M-R"
+
+                <Link
+                  className="M-R"
                   style={{ color: "rgb(199 21 144)", textDecoration: "none" }}
                   to={"/Mechanicform "}
                 >
@@ -74,14 +77,23 @@ const Navbar = () => {
               </ul>
             </li>
           </ul>
-        <div className="login"> 
-          <button className="m-login" type="submit">
-            Mechanic Login
-          </button>
+          <div className="login">
 
-          <button className="u-login" type="submit">
-            User Login
-          </button>
+          <NavLink to={"/Mechaniclogin"} className="m-login">
+                Mechanic Login
+              </NavLink>
+            {/* <link to ={"/Mechaniclogin"}> Mechanic Login */}
+              {/* <button
+                className="m-login"
+                type="submit"
+              >
+                Mechanic Login
+              </button> */}
+            {/* </link> */}
+
+            <button className="u-login" type="submit">
+              User Login
+            </button>
           </div>
 
           {/* </form> */}
