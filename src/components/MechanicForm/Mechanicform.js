@@ -1,4 +1,4 @@
-import React, { useState, setState } from "react";
+import React, { useState, setState,useEffect } from "react";
 import axios from "axios";
 import "./Mechanicform.css";
 import { useNavigate, Link } from "react-router-dom";
@@ -68,6 +68,9 @@ const Mechanicform = () => {
       console.log("Password does not match");
     }
   };
+
+  
+
 
   async function submit(e) {
     // e.preventDefault();
@@ -176,7 +179,9 @@ const Mechanicform = () => {
                     placeholder="abc@gmail.com"
                     value={email}
                     onChange={(e) => handleInputChange(e)}
+                
                   />
+                 
                 </td>
 
                 <td className="phoneNumber input-box">

@@ -1,12 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Alkatra&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500&display=swap");
-
+/* 
 .form {
-  display: flex;
-  /* flex-direction: row;  */
+
   display: grid;
   gap: 4px;
-  /* max-width: 300px; */
   max-width: 150vh;
   height: 80vh;
   align-items: center;
@@ -19,14 +17,16 @@
   margin-bottom: 10px;
   background-color: #fff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   font-family: "Josefin Sans", sans-serif;
+  padding:6px;
 }
 
 table {
   border-collapse: separate;
   border-spacing: 15px 0;
+  padding: 40px;
 }
 
 td {
@@ -72,4 +72,99 @@ td {
   padding: 0;
   font-size: 16px;
   font-weight: bold;
+} */
+
+/* .form {
+  max-width: 70%;
+  width: 70%;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  margin: 20px auto;
+  height: 600px;
+} */
+
+.form {
+  max-width: 70%;
+  width: 70%;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  margin: 4rem auto; /* Adjust the margin as needed */
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: slideIn 0.5s ease;
+}
+
+
+
+
+.form h3 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-body {
+  margin-bottom: 20px;
+}
+
+.form_label {
+  /* font-weight: bold; */
+  margin: 10px;
+  font-size: 17px;
+  padding:20px;
+}
+
+.form_input {
+  width: 100%;
+  margin: 10px;
+  max-width: 26em; /* Adjust this value to control the input box width */
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+  font-size: 18px; /* Increase the font size as needed */
+}
+
+.form_input:focus {
+  border-color: #666;
+}
+
+.btn {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+/* Add animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form {
+  animation: slideIn 0.5s ease;
 }
