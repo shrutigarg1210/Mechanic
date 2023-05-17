@@ -4,6 +4,7 @@ import "./user.css";
 // //Axios is a powerful and flexible library that simplifies
 // // the process of making HTTP requests in JavaScript applications.
 import { useNavigate, Link } from "react-router-dom";
+import Navbar from "../Navbar";
 const Userlogin = () => {
   //   const navigate = useNavigate();
   //   const [email, setEmail] = useState("");
@@ -40,6 +41,8 @@ const Userlogin = () => {
 
   return (
     // <center>
+    <div>
+      <Navbar/>
       <div id="login">
         <form>
           <div class="mb-3">
@@ -80,7 +83,7 @@ const Userlogin = () => {
         <p>OR</p>
         <Link to="../RegistrationForm">SignUp Page😍</Link>
         </center>
-      
+      </div>
       </div>
     //  </center> 
 
