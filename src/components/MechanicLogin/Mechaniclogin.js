@@ -41,10 +41,9 @@ const Mechaniclogin = () => {
   return (
     // <center>
     <div id="login">
-      <center>
-        <h3>LOGIN</h3>
-      </center>
+
       <form>
+      <center><h3>LOGIN</h3></center>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">
             Email address
