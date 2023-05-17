@@ -1,14 +1,15 @@
 const express = require("express");
 const Collection = require("./mechanicmodel");
 const user = require("./usermodel");
-const login = require("./loginmodel")
+const login = require("./loginmodel");
 const cors = require("cors");
 const app = express();
 const mongoose = require("mongoose");
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 const saltRounds = 10;
-const jwt = require('jsonwebtoken');
-const secretKey = 'e7062355b870488c9ddc3ca783ab8710be261a10e3976a1e61a02377fbbaec83';
+const jwt = require("jsonwebtoken");
+const secretKey =
+  "e7062355b870488c9ddc3ca783ab8710be261a10e3976a1e61a02377fbbaec83";
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -76,7 +77,10 @@ app.post("/Mechanicform", async (req, res) => {
         const mechanicPassword = req.body.password;
 
         // encrypt the mechanic's password using bcrypt
-        const encryptedMechanicPassword = await bcrypt.hash(mechanicPassword, saltRounds);
+        const encryptedMechanicPassword = await bcrypt.hash(
+          mechanicPassword,
+          saltRounds
+        );
 
         var oneCollection = new Collection({
           firstname: firstname,
@@ -94,8 +98,8 @@ app.post("/Mechanicform", async (req, res) => {
         });
 
         // Create token
-        const token = jwt.sign(email,secretKey);
-        
+        const token = jwt.sign(email, secretKey);
+
         // save user token
         oneCollection.token = token;
 
@@ -113,37 +117,19 @@ app.post("/Mechanicform", async (req, res) => {
 });
 
 app.get("/Mechaniclogin", (req, res) => {
-	res.sendFile(__dirname + "/Mechaniclogin.js");
+  res.render("Mechaniclogin");
 });
 
 app.post("/Mechaniclogin", async (req, res) => {
-  const {
-    email,
-    password,
-  } = req.body;
+  try {
+    const email = req.body.email;
+    const password = req.body.password;
 
- const findmechanic = Collection.find(u => u.email === email);
-
- if (!findmechanic) {
-  return res.status(401).send("Invalid email or password");
-}
-
-// Compare password with the hashed password in the database
-const passwordMatch = await bcrypt.compare(password, findmechanic.password);
-
-if (!passwordMatch) {
-  return res.status(401).send("Invalid email or password");
-}
-// Generate JWT token with user's email as payload
-const token = jwt.sign({ email: findmechanic.email }, secretKey);
-
-// Set token as cookie for future requests
-res.cookie("token", token, { httpOnly: true });
-
-// Redirect user to the dashboard
-res.redirect("/");
+    console.log(`${email} and password ${password}`);
+  } catch (error) {
+    return res.json({ message: "Internal server error" });
+  }
 });
-
 
 app.post("/RegistrationForm", async (req, res) => {
   console.log(req.body);
@@ -164,7 +150,6 @@ app.post("/RegistrationForm", async (req, res) => {
   const encrypteduserPassword = await bcrypt.hash(userPassword, saltRounds);
 
   var newUser = new user({
-
     firstName: firstName,
     lastName: lastName,
     phoneNumber: phoneNumber,
@@ -175,8 +160,8 @@ app.post("/RegistrationForm", async (req, res) => {
     longitude: longitude,
   });
   // Create token
-  const token = jwt.sign(email,secretKey);
-        
+  const token = jwt.sign(email, secretKey);
+
   // save user token
   newUser.token = token;
   try {
