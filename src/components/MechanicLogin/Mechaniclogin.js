@@ -7,38 +7,38 @@ import { useNavigate, Link } from "react-router-dom";
 // import { Navbar } from "react-bootstrap";
 import Navbar from "../Navbar";
 const Mechaniclogin = () => {
-  //   const navigate = useNavigate();
-  //   const [email, setEmail] = useState("");
-  //   const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+    // const [email, setEmail] = useState("");
+    // const [password, setPassword] = useState("");
 
-  //   async function submit(e) {
-  //     e.preventDefault();
+    // async function submit(e) {
+    //   e.preventDefault();
 
-  //     try {
-  //       let res = await axios
-  //         .post(
-  //           "http://localhost:8000/Mechaniclogin",
-  //           {
-  //             email,
-  //             password,
-  //           }
-  //         )
-  //         .then((res) => {
-  //           if ((res.data = "exist")) {
-  //             navigate("/");
-  //           } else if ((res.data = "not exist")) {
-  //             alert("User Not Found🙁");
-  //           }
-  //         })
+    //   try {
+    //     let res = await axios
+    //       .post(
+    //         "http://localhost:8000/Mechaniclogin",
+    //         {
+    //           email,
+    //           password,
+    //         }
+    //       )
+    //       .then((res) => {
+    //         if ((res.data = "exist")) {
+    //           navigate("/");
+    //         } else if ((res.data = "not exist")) {
+    //           alert("User Not Found🙁");
+    //         }
+    //       })
 
-  //         .catch((e) => {
-  //           alert("Wrong Details");
-  //           console.log(e);
-  //         });
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //   }
+    //       .catch((e) => {
+    //         alert("Wrong Details");
+    //         console.log(e);
+    //       });
+    //   } catch (e) {
+    //     console.log(e);
+    //   }
+    // }
 
   return (
     // <center>

@@ -44,7 +44,7 @@ const Userlogin = () => {
     <div>
       <Navbar/>
       <div id="login">
-        <form>
+        <form action="/Userlogin" method="POST">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">
               Email address
