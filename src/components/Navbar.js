@@ -77,14 +77,12 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="login">
-
-          <NavLink to={"/Mechaniclogin"} className="m-login">
-                Mechanic Login
-              </NavLink>
-          <NavLink to={"/Userlogin"} className="u-login">
-            User Login
+            <NavLink to={"/Mechaniclogin"} className="m-login">
+              Mechanic Login
             </NavLink>
-            
+            <NavLink to={"/Userlogin"} className="u-login">
+              User Login
+            </NavLink>
           </div>
 
           {/* </form> */}

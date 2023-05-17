@@ -4,6 +4,8 @@ import "./mechanic.css";
 // //Axios is a powerful and flexible library that simplifies
 // // the process of making HTTP requests in JavaScript applications.
 import { useNavigate, Link } from "react-router-dom";
+// import { Navbar } from "react-bootstrap";
+import Navbar from "../Navbar";
 const Mechaniclogin = () => {
   //   const navigate = useNavigate();
   //   const [email, setEmail] = useState("");
@@ -40,8 +42,10 @@ const Mechaniclogin = () => {
 
   return (
     // <center>
+    <div>
+<Navbar/>
+   
     <div id="login">
-
       <form>
       <center><h3>LOGIN</h3></center>
         <div class="mb-3">
@@ -81,6 +85,7 @@ const Mechaniclogin = () => {
         <p>OR</p>
         <Link to="../Mechanicform">SignUp Page😍</Link>
       </center>
+    </div>
     </div>
     //  </center>
   );
