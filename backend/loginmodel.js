@@ -12,13 +12,14 @@ const loginSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  
-  token: 
-  { 
-    type: String
- },
+ 
 });
 
-const login = mongoose.model("loginSchema", loginSchema);
+const login = mongoose.model("login", loginSchema);
 
 module.exports = login;
+
+// token: 
+// { 
+//   type: String
+// },

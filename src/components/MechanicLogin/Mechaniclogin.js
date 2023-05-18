@@ -8,37 +8,43 @@ import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../Navbar";
 const Mechaniclogin = () => {
     const navigate = useNavigate();
-    // const [email, setEmail] = useState("");
-    // const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-    // async function submit(e) {
-    //   e.preventDefault();
+    const handleInputChange = (e) =>{
 
-    //   try {
-    //     let res = await axios
-    //       .post(
-    //         "http://localhost:8000/Mechaniclogin",
-    //         {
-    //           email,
-    //           password,
-    //         }
-    //       )
-    //       .then((res) => {
-    //         if ((res.data = "exist")) {
-    //           navigate("/");
-    //         } else if ((res.data = "not exist")) {
-    //           alert("User Not Found🙁");
-    //         }
-    //       })
+      const {id,value} = e.target;
 
-    //       .catch((e) => {
-    //         alert("Wrong Details");
-    //         console.log(e);
-    //       });
-    //   } catch (e) {
-    //     console.log(e);
-    //   }
-    // }
+      if(id == "email"){
+        setEmail(value);
+      }
+
+      if(id == "password"){
+        setPassword(value);
+      }
+    };
+
+    async function submit(e){
+
+      try{
+
+        let res = await axios.post("http://localhost:8000/Mechaniclogin",{
+          email,
+          password,
+        });
+
+       if(res.data.message === "Login Successful" ){
+        navigate("'/");
+       }
+       else{
+          alert("Invalid Username or Password")
+       }
+      }
+
+      catch(e){
+        console.log(e);
+      }
+    }
 
   return (
     // <center>
@@ -50,17 +56,21 @@ const Mechaniclogin = () => {
       <center>
         <h3>LOGIN</h3>
       </center>
-      <form>
+      <form action="/" onSubmit={(e) => submit(e)}>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">
-            Email address
+            Email 
           </label>
           <center>
             <input
               type="email"
               class="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
+              id="email"
+              value={email}
+              required
+              onChange={(e) => handleInputChange(e)}
+              // aria-describedby="emailHelp"
+              
             />
           </center>
 
@@ -75,7 +85,10 @@ const Mechaniclogin = () => {
           <input
             type="password"
             class="form-control"
-            id="exampleInputPassword1"
+            id="password"
+            required
+            onChange={(e) => handleInputChange(e)}
+            value={password}
           />
         </div>
         <center>

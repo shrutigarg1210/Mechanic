@@ -116,16 +116,31 @@ app.post("/Mechanicform", async (req, res) => {
   }
 });
 
-app.get("/Mechaniclogin", (req, res) => {
-  res.render("Mechaniclogin");
-});
+// app.get("/Mechaniclogin", (req, res) => {
+//   res.render("Mechaniclogin");
+// });
 
 app.post("/Mechaniclogin", async (req, res) => {
   try {
     const email = req.body.email;
     const password = req.body.password;
-
     console.log(`${email} and password ${password}`);
+    
+    const mechanic = await Collection.findOne({email:email});
+
+    const isMatch = await bcrypt.compare(password,mechanic.password);
+
+    if(isMatch){
+      
+      return res.json({message: "Login Successful"});
+      console.log("Success");
+    }
+
+    else{
+      console.log("failed");
+      return res.json({message: "Invalid Username or Password"});
+    }
+    
   } catch (error) {
     return res.json({ message: "Internal server error" });
   }
