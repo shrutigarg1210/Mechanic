@@ -1,8 +1,8 @@
 const { type } = require("@testing-library/user-event/dist/type");
 const mongoose = require("mongoose");
 
-const loginSchema = new mongoose.Schema({
- 
+const userloginSchema = new mongoose.Schema({
+   
   email:{
     type: String,
     required: true,
@@ -12,14 +12,8 @@ const loginSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
- 
-});
+})
 
-const login = mongoose.model("login", loginSchema);
+const userlogin = mongoose.model("userlogin",userloginSchema);
 
-module.exports = login;
-
-// token: 
-// { 
-//   type: String
-// },
+module.exports = userlogin;

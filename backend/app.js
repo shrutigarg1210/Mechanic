@@ -2,6 +2,7 @@ const express = require("express");
 const Collection = require("./mechanicmodel");
 const user = require("./usermodel");
 const login = require("./loginmodel");
+const userlogin = require("./userloginmodel")
 const cors = require("cors");
 const app = express();
 const mongoose = require("mongoose");
@@ -125,7 +126,7 @@ app.post("/Mechaniclogin", async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     console.log(`${email} and password ${password}`);
-    
+
     const mechanic = await Collection.findOne({email:email});
 
     const isMatch = await bcrypt.compare(password,mechanic.password);
@@ -185,6 +186,33 @@ app.post("/RegistrationForm", async (req, res) => {
     return res.json({ message: "new user added", newUser: newUser });
   } catch (error) {
     console.log(error);
+    return res.json({ message: "Internal server error" });
+  }
+});
+
+
+app.post("/Userlogin", async (req, res) => {
+  try {
+    const email = req.body.email;
+    const password = req.body.password;
+    console.log(`${email} and password ${password}`);
+
+    const customer = await user.findOne({email:email});
+
+    const isMatch = await bcrypt.compare(password,customer.password);
+
+    if(isMatch){
+      
+      return res.json({message: "Login Successful"});
+      console.log("Success");
+    }
+
+    else{
+      console.log("failed");
+      return res.json({message: "Invalid Username or Password"});
+    }
+    
+  } catch (error) {
     return res.json({ message: "Internal server error" });
   }
 });

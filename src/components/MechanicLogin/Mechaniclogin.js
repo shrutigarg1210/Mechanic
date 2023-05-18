@@ -15,17 +15,17 @@ const Mechaniclogin = () => {
 
       const {id,value} = e.target;
 
-      if(id == "email"){
+      if(id === "email"){
         setEmail(value);
       }
 
-      if(id == "password"){
+      if(id === "password"){
         setPassword(value);
       }
     };
 
     async function submit(e){
-
+      e.preventDefault()
       try{
 
         let res = await axios.post("http://localhost:8000/Mechaniclogin",{
@@ -34,9 +34,11 @@ const Mechaniclogin = () => {
         });
 
        if(res.data.message === "Login Successful" ){
-        navigate("'/");
+        console.log("Working");
+        navigate("/");
        }
        else{
+        console.log("Not Working");
           alert("Invalid Username or Password")
        }
       }
@@ -58,7 +60,7 @@ const Mechaniclogin = () => {
       </center>
       <form action="/" onSubmit={(e) => submit(e)}>
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">
+          <label for="email" class="form-label">
             Email 
           </label>
           <center>
@@ -79,7 +81,7 @@ const Mechaniclogin = () => {
           </div>
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
+          <label for="password" class="form-label">
             Password
           </label>
           <input
