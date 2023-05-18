@@ -31,7 +31,7 @@
 //         }}
 //       >
 //         <div class="carousel-inner">
-       
+
 //           <div class="carousel-item ">
 //             <img
 //               //src="https://w0.peakpx.com/wallpaper/475/650/HD-wallpaper-3d-car-parts-car-repair-concepts-car-parts-sales-3d-generator-oil-filter-brake-pads-battery-shock-absorbers.jpg"
@@ -112,12 +112,12 @@
 
 // export default Home;
 
-
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import image from "./About.jpg";
 import "./home.css";
+import Footer from "../Footer/Footer";
 
 const Home = () => {
   const location = useLocation();
@@ -188,7 +188,10 @@ const Home = () => {
           data-bs-target="#carouselExample"
           data-bs-slide="prev"
         >
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span
+            className="carousel-control-prev-icon"
+            aria-hidden="true"
+          ></span>
           <span className="visually-hidden">Previous</span>
         </button>
         <button
@@ -197,10 +200,14 @@ const Home = () => {
           data-bs-target="#carouselExample"
           data-bs-slide="next"
         >
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span
+            className="carousel-control-next-icon"
+            aria-hidden="true"
+          ></span>
           <span className="visually-hidden">Next</span>
         </button>
       </div>
+      <Footer />
     </div>
   );
 };
