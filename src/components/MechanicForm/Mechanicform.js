@@ -120,10 +120,10 @@ const Mechanicform = () => {
   return (
     <center>
       {" "}
-      <div className="form">
+      <div className="Mform">
         <form action="/" onSubmit={(e) => submit(e)}>
           <h3>Mechanic Registration Form</h3>
-          <div className="form-body">
+          <div className="formbody">
            
             <table>
               <tr className="firstname input-box">
