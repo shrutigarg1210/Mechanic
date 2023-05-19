@@ -52,6 +52,9 @@ const Userlogin = () => {
     <div>
       <Navbar/>
       <div id="login">
+      <center>
+          <h3>LOGIN</h3>
+        </center>
         <form>
           <div class="mb-3">
             <label for="email" class="form-label">
@@ -59,6 +62,7 @@ const Userlogin = () => {
             </label>
             <center>
             <input
+            placeholder="E-mail"
               type="email"
               class="form-control"
               id="email"
@@ -77,6 +81,7 @@ const Userlogin = () => {
               Password
             </label>
             <input
+            placeholder="Password"
               type="password"
               class="form-control"
               id="password"

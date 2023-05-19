@@ -45,8 +45,8 @@
     border-width: .1px;
     border-radius: 15px;
     margin: 0 auto;
-    margin-top: 4rem;
-    background: linear-gradient(to bottom, #0077ff, #00c9ff);
+    margin-top: .1rem;
+    background: linear-gradient(to bottom, #0a0a0b, #021920);
    color: white;
     font-size: 20px;
     font-weight: bold;
@@ -54,6 +54,14 @@
     animation: slideIn 0.5s ease;
     transition: background-color 0.3s ease;
    
+}
+.form-text
+{
+  color: grey ;
+}
+.form-control 
+{
+  color: black;
 }
   
   

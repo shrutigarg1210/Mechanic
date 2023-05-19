@@ -6,7 +6,7 @@ import {
   Switch,
   Route,
   NavLink,
-} from "react-router-dom";
+} from "react-router-dom";  
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg  navbar-light">
@@ -43,6 +43,11 @@ const Navbar = () => {
             <li className="nav-item">
               <NavLink to={"/Services"} className="nav-link">
                 Services
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to={"/Contact"} className="nav-link">
+                Contact us
               </NavLink>
             </li>
             <li className="nav-item dropdown">
@@ -83,6 +88,7 @@ const Navbar = () => {
             <NavLink to={"/Userlogin"} className="u-login">
               User Login
             </NavLink>
+           
           </div>
 
           {/* </form> */}

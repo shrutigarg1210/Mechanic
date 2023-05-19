@@ -12,6 +12,7 @@ import Services from "./components/Service/Services";
 import Mechaniclogin from "./components/MechanicLogin/Mechaniclogin";
 import Userlogin from "./components/userlogin/Userlogin"
 import Footer from "./components/Footer/Footer";
+import Contact from "./components/Contact";
 function App() {
   return (
     <div>
@@ -59,6 +60,7 @@ function App() {
           <Route path="/Mechaniclogin" element={<Mechaniclogin />} />
           <Route path="/Userlogin" element={<Userlogin />} />
           <Route path="Footer" element = {<Footer/>}/>
+          <Route path="Contact" element = {<Contact/>}/>
         </Routes>
       </BrowserRouter>
     </div>
