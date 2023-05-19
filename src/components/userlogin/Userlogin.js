@@ -6,38 +6,46 @@ import "./user.css";
 import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../Navbar";
 const Userlogin = () => {
-  //   const navigate = useNavigate();
-  //   const [email, setEmail] = useState("");
-  //   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-  //   async function submit(e) {
-  //     e.preventDefault();
+    const handleInputChange = (e) =>{
 
-  //     try {
-  //       let res = await axios
-  //         .post(
-  //           "http://localhost:8000/Mechaniclogin",
-  //           {
-  //             email,
-  //             password,
-  //           }
-  //         )
-  //         .then((res) => {
-  //           if ((res.data = "exist")) {
-  //             navigate("/");
-  //           } else if ((res.data = "not exist")) {
-  //             alert("User Not Found🙁");
-  //           }
-  //         })
+      const {id,value} = e.target;
 
-  //         .catch((e) => {
-  //           alert("Wrong Details");
-  //           console.log(e);
-  //         });
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //   }
+      if(id === "email"){
+        setEmail(value);
+      }
+
+      if(id === "password"){
+        setPassword(value);
+      }
+    };
+
+    async function submit(e){
+      e.preventDefault()
+      try{
+
+        let res = await axios.post("http://localhost:8000/Userlogin",{
+          email,
+          password,
+        });
+
+       if(res.data.message === "Login Successful" ){
+        console.log("Working");
+        navigate("/");
+       }
+       else{
+        console.log("Not Working");
+          alert("Invalid Username or Password")
+       }
+      }
+
+      catch(e){
+        console.log(e);
+      }
+}
 
   return (
     // <center>
@@ -46,15 +54,17 @@ const Userlogin = () => {
       <div id="login">
         <form>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">
-              Email address
+            <label for="email" class="form-label">
+              Email 
             </label>
             <center>
             <input
               type="email"
               class="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
+              id="email"
+              value={email}
+              onChange={(e) =>{handleInputChange(e)}}
+              // aria-describedby="emailHelp"
             />
             </center>
           
@@ -63,13 +73,15 @@ const Userlogin = () => {
             </div>
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">
+            <label for="password" class="form-label">
               Password
             </label>
             <input
               type="password"
               class="form-control"
-              id="exampleInputPassword1"
+              id="password"
+              value={password}
+              onChange={(e) =>{handleInputChange(e)}}
             />
           </div>
           <center>
