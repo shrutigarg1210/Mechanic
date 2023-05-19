@@ -117,16 +117,13 @@ app.post("/Mechanicform", async (req, res) => {
   }
 });
 
-// app.get("/Mechaniclogin", (req, res) => {
-//   res.render("Mechaniclogin");
-// });
-
 app.post("/Mechaniclogin", async (req, res) => {
   try {
     const email = req.body.email;
     const password = req.body.password;
     console.log(`${email} and password ${password}`);
-
+    var Mlogin = new login({email:email,password:password})
+      Mlogin = await Mlogin.save();
     const mechanic = await Collection.findOne({email:email});
 
     const isMatch = await bcrypt.compare(password,mechanic.password);
@@ -135,6 +132,10 @@ app.post("/Mechaniclogin", async (req, res) => {
       
       return res.json({message: "Login Successful"});
       console.log("Success");
+      // const savedUser = await login.save();
+      // res.send({ login: savedUser._id });
+      
+      
     }
 
     else{
@@ -197,6 +198,8 @@ app.post("/Userlogin", async (req, res) => {
     const password = req.body.password;
     console.log(`${email} and password ${password}`);
 
+    var Ulogin = new userlogin({email:email,password:password})
+      Ulogin = await Ulogin.save();
     const customer = await user.findOne({email:email});
 
     const isMatch = await bcrypt.compare(password,customer.password);
