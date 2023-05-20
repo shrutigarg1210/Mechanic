@@ -23,8 +23,9 @@ const Mechaniclogin = () => {
     }
   };
 
-  async function submit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+    console.log("Hello")
     try {
       let res = await axios.post("http://localhost:8000/Mechaniclogin", {
         email,
@@ -52,16 +53,16 @@ const Mechaniclogin = () => {
         <center>
           <h3>LOGIN</h3>
         </center>
-        <form>
-          <div class="mb-3">
-            <label for="email" class="form-label">
+        <form onSubmit={handleSubmit} >
+          <div className="mb-3">
+            <label for="email" className="form-label">
               Email
             </label>
             <center>
               <input
                 placeholder="E-mail"
                 type="email"
-                class="form-control"
+                className="form-control"
                 id="email"
                 value={email}
                 required
@@ -70,33 +71,38 @@ const Mechaniclogin = () => {
               />
             </center>
 
-            <div id="emailHelp" class="form-text">
+            <div id="emailHelp" className="form-text">
               We'll never share your email with anyone else.
             </div>
           </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">
+          <div className="mb-3">
+            <label for="password" className="form-label">
               Password
             </label>
             <input
              placeholder="Password"
               type="password"
-              class="form-control"
+              className="form-control"
               id="password"
+              value={password}
               required
               onChange={(e) => handleInputChange(e)}
-              value={password}
+              
             />
           </div>
           <center>
-            <button type="submit" class="btn btn-primary">
-              Submit
-            </button>
+            <input type="submit" className="btn btn-primary"
+              value={"Submit"}
+            />
+            
           </center>
         </form>
         <center>
           <p>OR</p>
-          <Link to="../Mechanicform">SignUp Page😍</Link>
+          <Link  style={{ color: "rgb(199 21 144)", textDecoration: "none" }}
+           to="../Mechanicform">
+            SignUp Page😍
+            </Link>
         </center>
       </div>
     </div>

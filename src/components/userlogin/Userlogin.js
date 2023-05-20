@@ -4,12 +4,15 @@ import "./user.css";
 // //Axios is a powerful and flexible library that simplifies
 // // the process of making HTTP requests in JavaScript applications.
 import { useNavigate, Link } from "react-router-dom";
+import useGeolocation from "react-hook-geolocation";
 import Navbar from "../Navbar";
 const Userlogin = () => {
   const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const geolocation = useGeolocation();
+    const latitude = geolocation.latitude;
+    const longitude = geolocation.longitude;
     const handleInputChange = (e) =>{
 
       const {id,value} = e.target;
@@ -30,6 +33,8 @@ const Userlogin = () => {
         let res = await axios.post("http://localhost:8000/Userlogin",{
           email,
           password,
+          latitude,
+          longitude,
         });
 
        if(res.data.message === "Login Successful" ){
@@ -55,7 +60,7 @@ const Userlogin = () => {
       <center>
           <h3 >LOGIN</h3>
         </center>
-        <form>
+        <form onSubmit={submit}>
           <div class="mb-3">
             <label for="email" class="form-label">
               Email 
@@ -90,15 +95,16 @@ const Userlogin = () => {
             />
           </div>
           <center>
-          <button type="submit" class="btn btn-primary">
-            Submit
-          </button>
+          <input type="submit"  class="btn btn-primary"
+          value={"Submit"}
+          />
           </center>
           
         </form>
         <center>
         <p>OR</p>
-        <Link to="../RegistrationForm">SignUp Page😍</Link>
+        <Link  style={{ color: "rgb(95, 158, 160) ", textDecoration: "none" }}
+        to="../RegistrationForm">SignUp Page😍</Link>
         </center>
       </div>
       </div>

@@ -52,7 +52,7 @@ app.post("/Mechanicform", async (req, res) => {
     lastname,
     email,
     password,
-    confirmPassword,
+confirmPassword,
     phoneNumber,
     city,
     address,
@@ -119,17 +119,22 @@ app.post("/Mechanicform", async (req, res) => {
 
 app.post("/Mechaniclogin", async (req, res) => {
   try {
+    // console.log("Hi");
     const email = req.body.email;
     const password = req.body.password;
-    console.log(`${email} and password ${password}`);
-    var Mlogin = new login({email:email,password:password})
-      Mlogin = await Mlogin.save();
+    
+    // console.log(`${email} and password ${password}`);
+    // console.log(req);
+    // console.log($(latitude));
+    // console.log($(longitude));
+ 
     const mechanic = await Collection.findOne({email:email});
 
     const isMatch = await bcrypt.compare(password,mechanic.password);
 
     if(isMatch){
-      
+      var Mlogin = new login({email:email,password:password})
+      Mlogin = await Mlogin.save();
       return res.json({message: "Login Successful"});
       console.log("Success");
       // const savedUser = await login.save();
@@ -196,16 +201,17 @@ app.post("/Userlogin", async (req, res) => {
   try {
     const email = req.body.email;
     const password = req.body.password;
-    console.log(`${email} and password ${password}`);
-
-    var Ulogin = new userlogin({email:email,password:password})
-      Ulogin = await Ulogin.save();
+    const latitude = req.body.latitude;
+    const longitude = req.body.longitude;
+    // console.log(`${email} and password ${password}`);
+    
     const customer = await user.findOne({email:email});
 
     const isMatch = await bcrypt.compare(password,customer.password);
 
     if(isMatch){
-      
+      var Ulogin = new userlogin({email:email,password:password,latitude:latitude,longitude:longitude})
+      Ulogin = await Ulogin.save();
       return res.json({message: "Login Successful"});
       console.log("Success");
     }

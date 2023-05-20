@@ -12,6 +12,12 @@ const userloginSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  latitude:{
+    type: Number,
+  },
+  longitude:{
+    type: Number,
+  },
 })
 
 const userlogin = mongoose.model("userlogin",userloginSchema);
