@@ -1,5 +1,12 @@
 
-#login {
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+
+body{
+  /* background: linear-gradient(to bottom, #e868e8, #e9dee7);   */
+}
+
+#login1{
     display: flex;
     display: grid;
     max-width: 500px;
@@ -11,18 +18,22 @@
     border-radius: 15px;
     margin: 0 auto;
     margin-top: .1rem;
-    background: linear-gradient(to bottom, #32074d, #021920)!important;
-   color: white;
+    background: /* linear-gradient(to bottom, #0e9aa7, #011115)!important; */white;
+   color: black;
     font-size: 20px;
     font-weight: bold;
     font-family: "Josefin Sans", sans-serif;
     animation: slideIn 0.5s ease;
     transition: background-color 0.3s ease;
+    
    
+}
+h3{
+  font-family: 'Fjalla One', sans-serif;
 }
 .form-text
 {
-  color: grey ;
+  color:cadetblue ;
 }
 .form-control 
 {

@@ -51,9 +51,9 @@ const Userlogin = () => {
     // <center>
     <div>
       <Navbar/>
-      <div id="login">
+      <div id="login1">
       <center>
-          <h3>LOGIN</h3>
+          <h3 >LOGIN</h3>
         </center>
         <form>
           <div class="mb-3">
