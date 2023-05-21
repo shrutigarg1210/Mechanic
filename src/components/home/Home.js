@@ -118,6 +118,7 @@ import { useEffect, useRef } from "react";
 import image from "./About.jpg";
 import "./home.css";
 import Footer from "../Footer/Footer";
+import Accordion from "../accordion/Accordion";
 
 const Home = () => {
   const location = useLocation();
@@ -208,6 +209,8 @@ const Home = () => {
         </button>
       </div>
       <Footer />
+      <Accordion/>
+
     </div>
   );
 };
