@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg  navbar-light">
       <div className="container-fluid">
-        <a className="navbar-brand" /* href="/" */>
+        <a className="navbar-brand"  href="/" >
           OnTheGoMechanic
         </a>
         <button
@@ -46,7 +46,7 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to={"/Contact"} className="nav-link">
+              <NavLink to={"/Contact"} className="nav-link" target="blank">
                 Contact us
               </NavLink>
             </li>

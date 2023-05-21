@@ -7,7 +7,7 @@
 .navbar-brand {
   font-family: "Darumadrop One", cursive;
   font-size: 1.8rem;
-  cursor:none;
+  /* cursor:none; */
 }
 
 .container-fluid {

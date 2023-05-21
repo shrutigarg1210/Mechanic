@@ -209,7 +209,7 @@ const Home = () => {
         </button>
       </div>
       <Footer />
-      <Accordion/>
+      {/* <Accordion/> */}
 
     </div>
   );
