@@ -10,7 +10,7 @@ import Layout from "./Layout";
 import Registrationform from "./components/User/RegistrationForm";
 import Services from "./components/Service/Services";
 import Mechaniclogin from "./components/MechanicLogin/Mechaniclogin";
-import Userlogin from "./components/userlogin/Userlogin"
+import Userlogin from "./components/userlogin/Userlogin";
 import Footer from "./components/Footer/Footer";
 import Contact from "./components/Contact";
 import Accordion from "./components/accordion/Accordion";
@@ -60,9 +60,9 @@ function App() {
           <Route path="/Services" element={<Services />} />
           <Route path="/Mechaniclogin" element={<Mechaniclogin />} />
           <Route path="/Userlogin" element={<Userlogin />} />
-          <Route path="Footer" element = {<Footer/>}/>
-          <Route path="Contact" element = {<Contact/>}/>
-          <Route path="Accordion" elements ={<Accordion/>}/>
+          <Route path="/Footer" element={<Footer />} />
+          <Route path="/Contact" element={<Contact />} />
+          <Route path="/accordion" element={<Accordion />} />
         </Routes>
       </BrowserRouter>
     </div>

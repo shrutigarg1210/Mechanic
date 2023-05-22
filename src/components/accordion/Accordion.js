@@ -9,13 +9,12 @@ function Accordion() {
   return (
     <>
       <section className="main-div">
-    <h2>Frequently Asked Questions</h2>
-      {data.map((elem) => {
-        //   {...elem} we are passing the things which are inside it
-        return <Myaccordion key={elem.id} {...elem} />;
-      })} 
+        <h2>Frequently Asked Questions</h2>
+        {data.map((elem) => {
+          //   {...elem} we are passing the things which are inside it
+          return <Myaccordion key={elem.id} {...elem} />;
+        })}
       </section>
-     
     </>
   );
 }
