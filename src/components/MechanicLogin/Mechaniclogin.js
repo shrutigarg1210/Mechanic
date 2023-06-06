@@ -46,7 +46,7 @@ const Mechaniclogin = () => {
 
   return (
     // <center>
-    <div>
+    <div className="mechanicl">
       <Navbar />
 
       <div id="login">

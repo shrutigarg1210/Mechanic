@@ -54,7 +54,7 @@ const Userlogin = () => {
 
   return (
     // <center>
-    <div>
+    <div className="userl">
       <Navbar/>
       <div id="login1">
       <center>
