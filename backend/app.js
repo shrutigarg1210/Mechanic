@@ -1,8 +1,10 @@
 const express = require("express");
+const nodemailer = require("nodemailer");
 const Collection = require("./mechanicmodel");
 const user = require("./usermodel");
 const login = require("./loginmodel");
 const userlogin = require("./userloginmodel")
+const Contact = require("./ContactModel");
 const cors = require("cors");
 const app = express();
 const mongoose = require("mongoose");
@@ -52,7 +54,7 @@ app.post("/Mechanicform", async (req, res) => {
     lastname,
     email,
     password,
-confirmPassword,
+    confirmPassword,
     phoneNumber,
     city,
     address,
@@ -226,6 +228,44 @@ app.post("/Userlogin", async (req, res) => {
   }
 });
 
+
+app.post('/Contact',async(req,res) =>{
+  
+  console.log(req.body);
+
+  const{
+    username,
+    email,
+    phoneNumber,
+    problem,
+  } = req.body;
+
+  try{
+
+    var contactus = new Contact({
+      username:username,
+      email:email,
+      phoneNumber:phoneNumber,
+      problem:problem,
+    })  
+    
+  contactus = await contactus.save();
+  console.log("Comment Added");
+  return res.json({message:"Your concern addedd"})
+  }
+
+  catch(e){
+    return res.json({ message: "Internal server error" });
+  }
+ 
+})
+
+
 app.listen(8000, () => {
   console.log("Server started on port 8000");
 });
+
+
+
+// user: "onthegomechanic8@gmail.com",
+    // pass: "Onthegomechanic?",

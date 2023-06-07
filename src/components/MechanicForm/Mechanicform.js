@@ -101,18 +101,7 @@ const Mechanicform = () => {
         }
         // return res;
       } catch (e) {
-        // )
-        // .catch((error) => {
-        //   console.log(error);
-        // });
-
-        // console.log(res);
-        // if (res.message === "user exists") {
-        //     alert("User Already Exist😁");
-        // } else if (res.message === "new user added") {
-        //   navigate("/home");
-        // }
-        // }
+        
         console.log(e);
       }
     }

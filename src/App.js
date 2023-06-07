@@ -11,7 +11,7 @@ import Services from "./components/Service/Services";
 import Mechaniclogin from "./components/MechanicLogin/Mechaniclogin";
 import Userlogin from "./components/userlogin/Userlogin";
 import Footer from "./components/Footer/Footer";
-import Contact from "./components/Contact";
+import Contact from "./components/contact/Contact";
 import Accordion from "./components/accordion/Accordion";
 function App() {
   return (
