@@ -13,7 +13,7 @@ const Footer = () => {
             </a>
           </li>
           <li class="nav-item">
-            <a href="/services" class="nav-link px-2 text-muted">
+            <a href="/services" class="nav-link px-2 text-muted"> 
               Features
             </a>
           </li>
