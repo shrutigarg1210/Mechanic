@@ -267,8 +267,8 @@
 import React,{ useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./HomePage.css";
-import image from "./About.jpg";
-import Footer from "../Footer/Footer";
+// import image from "./About.jpg";
+// import Footer from "../Footer/Footer";
 import Accordion from "../accordion/Accordion";
 
 const Home = () => {
@@ -378,6 +378,10 @@ const Home = () => {
           <p>Your Trusted Destination for Car Repair and Maintenance</p>
           <Link to="/services" className="btn btn-primary">Explore Services</Link>
         </div>
+      </section>
+
+      <section>
+        <Accordion/>
       </section>
 
      
