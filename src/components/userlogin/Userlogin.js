@@ -60,7 +60,7 @@ const Userlogin = () => {
       <Navbar/>
       <div id="login1">
       <center>
-          <h3 >LOGIN</h3>
+          <h3  >LOGIN</h3>
         </center>
         <form onSubmit={submit}>
           <div class="mb-3">
@@ -105,7 +105,7 @@ const Userlogin = () => {
         </form>
         <center>
         <p>OR</p>
-        <Link  style={{ color: "rgb(95, 158, 160) ", textDecoration: "none" }}
+        <Link  style={{ color: "cyan", textDecoration: "none" }}
         to="../RegistrationForm">SignUp Page😍</Link>
         </center>
       </div>

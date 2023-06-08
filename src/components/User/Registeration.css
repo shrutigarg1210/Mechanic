@@ -1,17 +1,21 @@
 .form {
   max-width: 70%;
   width: 70%;
-  background-color: #b38282 !important;
   border-radius: 5px;
-  padding: 20px;
+  padding: 40px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
-  margin: 20px auto;
+  margin: 0 auto;
+  margin-top: 3rem;
+  background: linear-gradient(45deg, #0a0a0b, #05313f);
+  color: rgb(246, 246, 246);
+  border-radius: 20px;
+  height: 100%;
 }
 
 .form h3 {
-  color: #333;
-  font-size: 24px;
+  color: #ffffff;
+  font-size: 34px;
   margin-bottom: 20px;
 }
 
@@ -40,12 +44,19 @@
 .btn {
   background-color: #333;
   color: #fff;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
   margin-top: 3px !important;
   transition: background-color 0.3s ease;
+  width: 25%;
+
+}
+.footer{
+  border-radius: 20px;
+  margin-top: 30px;
+  
 }
 
 .btn:hover {
