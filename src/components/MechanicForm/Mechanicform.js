@@ -111,9 +111,9 @@ const Mechanicform = () => {
       {" "}
       <div className="Mform">
         <form action="/" onSubmit={(e) => submit(e)}>
-          <h3>Mechanic Registration Form</h3>
+          
           <div className="formbody">
-           
+          <h3>Mechanic Registration Form</h3> 
             <table>
               <tr className="firstname input-box">
                 <td>
@@ -320,7 +320,7 @@ const Mechanicform = () => {
               </center> */}
             </table>
           </div>
-          <div className="footer">
+          <div className="footer1">
             <button type="submit" class="btn">
               Register
             </button>

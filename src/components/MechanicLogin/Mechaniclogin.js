@@ -45,7 +45,7 @@ const Mechaniclogin = () => {
   }
 
   return (
-    // <center>
+    <center>
     <div className="mechanicl">
       <Navbar />
 
@@ -53,12 +53,13 @@ const Mechaniclogin = () => {
         <center>
           <h3>LOGIN</h3>
         </center>
+        {/* <center> */}
         <form onSubmit={handleSubmit} >
           <div className="mb-3">
             <label for="email" className="form-label">
               Email
             </label>
-            <center>
+            
               <input
                 placeholder="E-mail"
                 type="email"
@@ -69,7 +70,7 @@ const Mechaniclogin = () => {
                 onChange={(e) => handleInputChange(e)}
                 // aria-describedby="emailHelp"
               />
-            </center>
+            {/* </center> */}
 
             <div id="emailHelp" className="form-text">
               We'll never share your email with anyone else.
@@ -106,7 +107,7 @@ const Mechaniclogin = () => {
         </center>
       </div>
     </div>
-    //  </center>
+      </center>
   );
 };
 

@@ -188,7 +188,7 @@ const Registrationform = () => {
                 </td>
               </tr>
             </table>
-            <div className="footer">
+            <div className="footer1">
               <button onClick={() => handleSubmit()} type="submit" class="btn">
                 Register
               </button>

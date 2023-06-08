@@ -44,18 +44,21 @@
   justify-content: center;
 }  */
 
+.mechanicl{
+  background-color: linear-gradient(to bottom,#0a0a0b, #05313f);
+}
 #login {
   display: flex;
   display: grid;
   max-width: 500px;
-  height: 650px;
+  height: 600px;
   align-items: center;
   justify-content: center;
   border: solid;
   border-width: 0.1px;
   border-radius: 15px;
   margin: 0 auto;
-  margin-top: 3rem;
+  margin-top: 1.3rem;
   background: linear-gradient(45deg, #0a0a0b, #05313f);
   color: white;
   font-size: 20px;
