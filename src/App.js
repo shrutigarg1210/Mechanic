@@ -13,6 +13,7 @@ import Userlogin from "./components/userlogin/Userlogin";
 import Footer from "./components/Footer/Footer";
 import Contact from "./components/contact/Contact";
 import Accordion from "./components/accordion/Accordion";
+import FindMechanic from "./components/Location/FindMechanic";
 function App() {
   return (
     <div>
@@ -61,6 +62,7 @@ function App() {
           <Route path="/Footer" element={<Footer />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/accordion" element={<Accordion />} />
+          <Route path="/FindMechanic" element = {<FindMechanic/>} />
         </Routes>
       </BrowserRouter>
     </div>

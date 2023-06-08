@@ -50,6 +50,11 @@ const Navbar = () => {
                 Contact us
               </NavLink>
             </li>
+            {/* <li className="nav-item">
+              <NavLink to={"/FindMechanic"} className="nav-link" target="blank">
+                Find Mechanic
+              </NavLink>
+            </li> */}
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
@@ -70,7 +75,6 @@ const Navbar = () => {
                     User
                   </Link>
                 </li>
-
                 <Link
                   className="M-R"
                   style={{ color: "rgb(199 21 144)", textDecoration: "none" }}
@@ -79,8 +83,10 @@ const Navbar = () => {
                   Mechanic
                 </Link>
               </ul>
+              
             </li>
           </ul>
+          
           <div className="login">
             <NavLink to={"/Mechaniclogin"} className="m-login">
               Mechanic Login

@@ -39,11 +39,13 @@ const Userlogin = () => {
 
        if(res.data.message === "Login Successful" ){
         console.log("Working");
-        navigate("/");
+        
+        navigate("/FindMechanic");
        }
        else{
         console.log("Not Working");
-          alert("Invalid Username or Password")
+        console.log(res.data.message);
+          alert(res.data.message)
        }
       }
 

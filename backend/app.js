@@ -137,8 +137,8 @@ app.post("/Mechaniclogin", async (req, res) => {
     if(isMatch){
       var Mlogin = new login({email:email,password:password})
       Mlogin = await Mlogin.save();
-      return res.json({message: "Login Successful"});
       console.log("Success");
+      return res.json({message: "Login Successful"});
       // const savedUser = await login.save();
       // res.send({ login: savedUser._id });
       
@@ -198,7 +198,29 @@ app.post("/RegistrationForm", async (req, res) => {
   }
 });
 
+function radians(degrees) {
+  return degrees * Math.PI / 180;
+}
 
+function calculateDistance(lat1, lon1, lat2, lon2) {
+  // console.log(lat1,"--",lon1,"--",lat2,"--",lon2)
+  const R = 6371e3; // Earth's radius in meters
+  const phi1 = radians(lat1);
+  // console.log(phi1);
+  const phi2 = radians(lat2);
+  const deltaPhi = radians(lat2 - lat1);
+  const deltaLambda = radians(lon2 - lon1);
+  
+  const a = Math.sin(deltaPhi/2) * Math.sin(deltaPhi/2) +
+          Math.cos(phi1) * Math.cos(phi2) *
+          Math.sin(deltaLambda/2) * Math.sin(deltaLambda/2)
+          
+          ;
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  const d = R * c;
+  // console.log(d);
+  return d;
+}
 app.post("/Userlogin", async (req, res) => {
   try {
     const email = req.body.email;
@@ -210,22 +232,67 @@ app.post("/Userlogin", async (req, res) => {
     const customer = await user.findOne({email:email});
 
     const isMatch = await bcrypt.compare(password,customer.password);
-
+    console.log(isMatch);
     if(isMatch){
-      var Ulogin = new userlogin({email:email,password:password,latitude:latitude,longitude:longitude})
-      Ulogin = await Ulogin.save();
-      return res.json({message: "Login Successful"});
-      console.log("Success");
-    }
+      const mechanics = await Collection.find({}); // Retrieve all mechanics
+      // console.log(mechanics);
+      let minDistance = Number.MAX_VALUE;
+      let closestMechanic = null;
+      
+      // Iterate through all the mechanics
+      for (const mech of mechanics) {
+        const mechanicLatitude = mech.latitude; // Latitude of the mechanic
+        const mechanicLongitude = mech.longitude; // Longitude of the mechanic
+        // console.log(mechanicLatitude);
+        // console.log(mechanicLongitude);
+        // Calculate the distance between the current user and the mechanic
 
-    else{
-      console.log("failed");
-      return res.json({message: "Invalid Username or Password"});
-    }
-    
-  } catch (error) {
-    return res.json({ message: "Internal server error" });
+       
+        const distance = calculateDistance(
+          latitude,
+          longitude,
+          mechanicLatitude,
+          mechanicLongitude
+        );
+        
+        
+        // console.log(distance);
+        // Check if the current mechanic is closer than the previous closest mechanic
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestMechanic = mech;
+        }
+      }
+      console.log(closestMechanic);
+      if (closestMechanic) {
+        var Ulogin = new userlogin({email:email,password:password,latitude:latitude,longitude:longitude})
+      Ulogin = await Ulogin.save();
+        return res.json({ message: "Login Successful", mechanic: closestMechanic });
+      } else {
+        return res.json({ message: "No mechanics found" });
+      }
+    }   
+  else {
+    return res.json({ message: "Invalid Username or Password" });
   }
+  
+} catch (error) {
+  return res.json({ message: "Internal server error" });
+}
+    //   var Ulogin = new userlogin({email:email,password:password,latitude:latitude,longitude:longitude})
+    //   Ulogin = await Ulogin.save();
+    //   console.log("Success");
+    //   return res.json({message: "Login Successful"});
+    // }
+  //   else{
+  //     console.log("failed");
+  //     return res.json({message: "Invalid Username or Password"});
+  //   }
+    
+  // } catch (error) {
+  //   return res.json({ message: "Internal server error" });
+  // }
+ 
 });
 
 

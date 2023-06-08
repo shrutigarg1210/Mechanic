@@ -37,7 +37,7 @@ function radians(degrees) {
 }
 
 // example usage:
-const distanceInMeters = distance(40.7128, -74.0060, 51.5074, -0.1278);
+// const distanceInMeters = distance(40.7128, -74.0060, 51.5074, -0.1278);
 console.log(distanceInMeters); // Output: 5573059.050628106 (in meters)
 const geolocation=()=>{
     
@@ -66,3 +66,6 @@ root.render(
   <Location></Location>
   </>
 );
+
+
+  
