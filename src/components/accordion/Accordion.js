@@ -23,9 +23,11 @@
 
 
 import React, { useState } from "react";
+
 import "./accordion.css"; 
 
 const Accordion = () => {
+
   const [activeIndex, setActiveIndex] = useState(null);
 
   const questions = [

@@ -3,8 +3,9 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import Footer from "../Footer/Footer";
-
+import Navbar from "../Navbar";
 import "./Contact.css";
+
 
 const Contact = () => {
   const navigate = useNavigate();
@@ -63,6 +64,7 @@ const Contact = () => {
 
   return (
     <>
+   <Navbar/>
       <div className="contact-container">
         <img
           src="https://images.unsplash.com/photo-1615840287214-7ff58936c4cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
