@@ -32,54 +32,48 @@
     color: rgb(67, 66, 66);
 } */
 
-body{
-  /* background: linear-gradient(to bottom, #078bf0, #ee0ab5); */
+.mechanicl {
+  background: linear-gradient(to bottom, #078bf0, #ee0ab5);
 }
-
 
 #login {
-    display: flex;
-    display: grid;
-    max-width: 500px;
-   height: 650px;
-   align-items: center;
-    justify-content: center;
-    border: solid;
-    border-width: .1px;
-    border-radius: 15px;
-    margin: 0 auto;
-    margin-top: .1rem;
-    background: linear-gradient(to bottom, #0a0a0b, #021920);
-   color: white;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: "Josefin Sans", sans-serif;
-    animation: slideIn 0.5s ease;
-    transition: background-color 0.3s ease;
-   
+  display: flex;
+  display: grid;
+  max-width: 500px;
+  height: 650px;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  border-width: 0.1px;
+  border-radius: 15px;
+  margin: 0 auto;
+  margin-top: 0.1rem;
+  background: linear-gradient(to bottom, #0a0a0b, #021920);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Josefin Sans", sans-serif;
+  animation: slideIn 0.5s ease;
+  transition: background-color 0.3s ease;
 }
-.form-text
-{
-  color: grey ;
+.form-text {
+  color: grey;
 }
-.form-control 
-{
+.form-control {
   color: black;
 }
-  
-  
-  #login:hover {
-    background-color: rgb(23, 23, 123); /* Change background color on hover */
+
+#login:hover {
+  background-color: rgb(23, 23, 123); /* Change background color on hover */
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}

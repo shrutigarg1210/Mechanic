@@ -9,6 +9,7 @@
 
 // var urlencodedParser = bodyParser.urlencoded({ extended: false })
 // app.use(bodyParser.json())
+<<<<<<< HEAD
 
 // app.use(cors());
 // app.use(express.json());
@@ -17,6 +18,15 @@
 //     console.log("Database Connected");
 // })
 
+=======
+// app.use(cors());
+// app.use(express.json());
+// mongoose.connect("mongodb+srv://shrutigarg749:<BFkmjX5yAojiBpc6>@mechanicform.zrwveqq.mongodb.net/test",{ useNewUrlParser: true })
+// mongoose.connection.on("connected",() =>{
+//     console.log("Database Connected");
+// })
+
+>>>>>>> 90e6cdc8b49d7eb3c3553a71728567a08a450099
 // mongoose.connection.on("Error",() =>{
 //     console.log("Database Not Connected");
 // })
@@ -53,6 +63,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const PORT = 4000;
 
+<<<<<<< HEAD
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -70,3 +81,17 @@ mongoose.connection.on("error", (err) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+=======
+// var urlencodedParser = bodyParser.urlencoded({ extended: false })
+// app.use(bodyParser.json())
+// app.use(cors());
+// app.use(express.json());
+// mongoose.connect("mongodb://0.0.0.0:27017/todo")
+// mongoose.connection.on("connected",() =>{
+//     console.log("Database Connected");
+// })
+
+// mongoose.connection.on("Error",() =>{
+//     console.log("Database Not Connected");
+// })
+>>>>>>> 90e6cdc8b49d7eb3c3553a71728567a08a450099

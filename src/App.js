@@ -6,13 +6,12 @@ import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import Mechanicform from "./components/MechanicForm/Mechanicform";
 import "./components/MechanicLogin/Mechaniclogin";
 import Layout from "./Layout";
-// import Userregistration from "./components/User/Userregistration";
 import Registrationform from "./components/User/RegistrationForm";
 import Services from "./components/Service/Services";
 import Mechaniclogin from "./components/MechanicLogin/Mechaniclogin";
 import Userlogin from "./components/userlogin/Userlogin";
 import Footer from "./components/Footer/Footer";
-import Contact from "./components/Contact";
+import Contact from "./components/contact/Contact";
 import Accordion from "./components/accordion/Accordion";
 function App() {
   return (
@@ -24,7 +23,6 @@ function App() {
             element={
               <Layout>
                 <Navbar />
-                {/* <h1>Hello</h1> */}
                 <Home />
               </Layout>
             }
