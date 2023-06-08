@@ -4,7 +4,7 @@
   }
   
   .services-container h1 {
-    background-color: #333;
+    background: linear-gradient(45deg, #0a0a0b, #05313f);
     color: #fff;
     padding: 10px;
     border-radius: 5px;

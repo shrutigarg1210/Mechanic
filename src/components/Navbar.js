@@ -12,7 +12,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg  navbar-light">
       <div className="container-fluid">
         <a className="navbar-brand"  href="/" >
-          OnTheGoMechanic
+          <h1>OnTheGoMechanic</h1>
         </a>
         <button
           className="navbar-toggler"
@@ -57,15 +57,14 @@ const Navbar = () => {
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                style={{color:"black"}}
               >
                 Registration Form
               </a>
               <ul className="dropdown-menu">
                 <li>
                   <Link
-                    className="M-R"
-                    style={{ color: "rgb(199 21 144)", textDecoration: "none" }}
-                    to={"/RegistrationForm "}
+                    className="M-R" to={"/RegistrationForm "}
                   >
                     User
                   </Link>
@@ -73,7 +72,6 @@ const Navbar = () => {
 
                 <Link
                   className="M-R"
-                  style={{ color: "rgb(199 21 144)", textDecoration: "none" }}
                   to={"/Mechanicform "}
                 >
                   Mechanic
@@ -99,3 +97,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

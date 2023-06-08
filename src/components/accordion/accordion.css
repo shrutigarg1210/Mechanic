@@ -1,63 +1,25 @@
-/* 
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-}
-
-
-
-.main-div
-{
-    width:30vw;
-    padding:50px;
-    background-color: rgb(255,255,265);
-    border-radius: 10px;
-    color: #600808;
-    box-shadow: rgba(17,17,26,0.05)0px 1px 0px,rgba(17,17,26,0.1)0px 0px 8px
-}
-.main-heading p{
-    cursor: pointer;
-    border-radius:10px;
-    background: aliceblue;
-    padding: 20px;
-}
-h1{
-    text-align: center;
-    text-transform: capitalize;
-    font-size: 30px;
-}
-
-.answers{
-    padding: 10px 20px 20px 20px;
-    font-size: 19px;
-    word-spacing: 2px;
-    font-weight: 450;
-    line-height: 1.5;
-    background: #fcf5f5;
-    color:black;
-}  */
-
-
 
 /* FAQ.css */
 
 .faq-container {
-    width: calc(100% - 40px); /* Subtract twice the side margin */
-    margin: 0 auto;
-    padding: 35px;
-    /* text-align: center; */
-  }
-  
-  /* Remove margin-left and margin-right properties */
-  /* .faq-container {
-    width: 80vw;
-    margin: 0 auto;
-    padding: 20px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  padding: 35px;
+  /* text-align: center; */
+}
+.faq-container h1{
+  background: linear-gradient(45deg, #0a0a0b, #05313f);
+    color: #fff;
+    padding: 12px;
+    border-radius: 5px;
     text-align: center;
-    margin-left: 20px;
-    margin-right: 20px;
-  } */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.4s ease;
+    margin: 10px 0;
+}
+
   
   .faq-list {
     margin-top: 20px;
@@ -70,32 +32,42 @@ h1{
     margin-bottom: 10px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    position: relative; /* Add this */
   }
-  
   .faq-item:hover {
     background-color: #56595c;
     color: #fff;
     transform: scale(1.03);
 
 }
+
+
   
   .faq-item.active {
     /* background-color: #2f86e2; */
     background-color: #3f3f40;
     color: #fff;
   }
+
+  .faq-item.active::before { /* Add this */
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+  }
   
   .faq-question {
     font-weight: bold;
     font-size: 24px;
   }
-  
+
   .faq-answer {
     display: none;
     margin-top: 10px;
-    /* font-weight: bold; */
     font-size: 17px;
-
   }
   
   .faq-item.active .faq-answer {

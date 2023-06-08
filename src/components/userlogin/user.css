@@ -1,10 +1,7 @@
-
+/* 
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 
 
-.userl{
-  background: linear-gradient(to bottom, #e868e8, #e9dee7);  
-}
 
 #login1{
     display: flex;
@@ -18,13 +15,14 @@
     border-radius: 15px;
     margin: 0 auto;
     margin-top: .1rem;
-    background: /* linear-gradient(to bottom, #0e9aa7, #011115)!important; */white;
-   color: black;
-    font-size: 20px;
+   color: rgb(246, 246, 246);
+    font-size: 23px;
     font-weight: bold;
     font-family: "Josefin Sans", sans-serif;
     animation: slideIn 0.5s ease;
     transition: background-color 0.3s ease;
+  background: linear-gradient(to bottom, #0a0a0b, #021920);
+    
     
    
 }
@@ -42,7 +40,7 @@ h3{
   
   
   #login:hover {
-    background-color: rgb(23, 23, 123); /* Change background color on hover */
+    background-color: rgb(23, 23, 123); 
   }
   
   @keyframes slideIn {
@@ -55,4 +53,66 @@ h3{
       transform: translateY(0);
     }
   }
-  
+   */
+
+   @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+
+#login1 {
+  display: flex;
+  display: grid;
+  max-width: 500px;
+  height: 650px;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  border-width: .1px;
+  border-radius: 15px;
+  margin: 0 auto;
+  margin-top: 3rem;
+  background: linear-gradient(45deg, #0a0a0b, #05313f);
+  color: rgb(246, 246, 246);
+  font-size: 23px;
+  font-weight: bold;
+  font-family: "Josefin Sans", sans-serif;
+  animation: slideIn 0.5s ease;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+h3 {
+  font-family: 'Fjalla One', sans-serif;
+}
+
+.form-text {
+  color: rgb(95, 158, 160);
+}
+
+.form-control {
+  color: black;
+}
+
+#login1:hover {
+  background-color: rgb(23, 23, 123);
+  cursor: pointer;
+}
+
+#login1 form {
+  transition: opacity 0.3s ease;
+}
+
+#login1 form:hover {
+  opacity: 0.8;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

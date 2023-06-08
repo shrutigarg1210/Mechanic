@@ -1,28 +1,9 @@
-// import { React, useState } from "react";
-// import { questions } from "./api";
-// import "./accordion.css";
-// import Myaccordion from "./Myaccordion";
-
-// function Accordion() {
-//   const [data, setdata] = useState(questions);
-
-//   return (
-//     <>
-//       <section className="main-div">
-//         <h2>Frequently Asked Questions</h2>
-//         {data.map((elem) => {
-//           //   {...elem} we are passing the things which are inside it
-//           return <Myaccordion key={elem.id} {...elem} />;
-//         })}
-//       </section>
-//     </>
-//   );
-// }
-
-// export default Accordion;
-
 
 import React, { useState } from "react";
+import Footer from "../Footer/Footer";
+import Navbar from '../Navbar'
+
+
 
 import "./accordion.css"; 
 
@@ -55,7 +36,25 @@ const Accordion = () => {
       id: 5,
       question: "What if I am not satisfied with my Car Service with OnTheGoMechanic?",
       answer: "With OnTheGoMechanic, you get an unconditional 500KMS/1Month Network Warranty on Car Repairs and Services redeemable anywhere in Rajpura. No questions asked!",
-    }
+    },
+    {
+      id: 6,
+      question: "Can you service vehicles of all makes and models?",
+      answer:
+        "Yes, we have expertise in servicing vehicles of all makes and models. Our mechanics are trained and experienced in working with a wide range of car brands. Whether you have a domestic or import vehicle, we can provide the necessary services and repairs.",
+    },
+    {
+      id: 7,
+      question: "How long does a typical car service take?",
+      answer:
+        "The duration of a car service can vary depending on the type of service and the condition of the vehicle. Generally, a basic service can take around 1-2 hours, while more extensive repairs or diagnostics may require additional time. Our team will provide you with an estimated timeframe based on the specific services required for your car.",
+    },
+    {
+      id: 8,
+      question: "What is included in a basic car service?",
+      answer:
+        "A basic car service typically includes an oil change, filter replacement, fluid top-ups, tire pressure check, and a general inspection of the vehicle's components. Additional services may vary depending on the service package chosen.",
+    },
   ];
 
   const handleClick = (index) => {
@@ -67,6 +66,8 @@ const Accordion = () => {
   };
 
   return (
+    <>
+        <Navbar />
     <div className="faq-container">
       <h1>Frequently Asked Questions</h1>
       <div className="faq-list">
@@ -82,6 +83,8 @@ const Accordion = () => {
         ))}
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 
