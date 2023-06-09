@@ -66,11 +66,15 @@ const Contact = () => {
     <>
    <Navbar/>
       <div className="contact-container">
+       
         <img
           src="https://images.unsplash.com/photo-1615840287214-7ff58936c4cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
           alt="Contact"
-          className="contact-image"
+         className="contact-image"
         />
+      
+       
+      
 
         <form className="contact-form" onSubmit={(e) => submit(e)} action="/">
           <h2 className="contact-title">Contact Us</h2>
@@ -170,7 +174,8 @@ const Contact = () => {
             Submit
           </button>
         </form>
-      </div>
+        </div>
+      
       <Footer />
     </>
   );

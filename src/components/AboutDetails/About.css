@@ -122,12 +122,13 @@
  
   
   .about-content:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
   }
   
   .about-content h2 {
     color: #333;
     font-size: 24px;
+    font-weight: 500;
     margin-bottom: 10px;
     transition: color 0.3s ease;
   }
@@ -138,7 +139,7 @@
     line-height: 1.5;
   }
   
-  .about-content:hover h2 {
-    color: #7b7575;
+  .about-content:hover p {
+    color: #262424;
   }
   
