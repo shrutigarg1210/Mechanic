@@ -100,9 +100,9 @@ const Mechaniclogin = () => {
         </form>
         <center>
           <p>OR</p>
-          <Link  style={{ color: "cyan", fontSize:"25px", textDecoration: "none" }}
+          <Link  style={{ color: "rgb(95, 158, 160)", fontSize:"20px", textDecoration: "none" }}
            to="../Mechanicform">
-            SignUp Page😍
+            SignUp Page
             </Link>
         </center>
       </div>

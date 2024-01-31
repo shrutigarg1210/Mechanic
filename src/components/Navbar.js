@@ -1,5 +1,6 @@
 import React from "react";
 import "./Navbar.css";
+import logo from "./logo.jpg"
 import {
   Link,
   BrowserRouter as Router,
@@ -9,10 +10,11 @@ import {
 } from "react-router-dom";  
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg  navbar-light">
+    <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container-fluid">
         <a className="navbar-brand"  href="/" >
-          <h1>OnTheGoMechanic</h1>
+          <img src={logo} height="60" className="logo"></img>
+          {/* <h1>OnTheGoMechanic</h1> */}
         </a>
         <button
           className="navbar-toggler"
@@ -46,7 +48,7 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to={"/Contact"} className="nav-link" target="blank">
+              <NavLink to={"/Contact"} className="nav-link" target="blank" >
                 Contact us
               </NavLink>
             </li>
@@ -62,7 +64,7 @@ const Navbar = () => {
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-                style={{color:"black"}}
+                // style={{color:"white"}}
               >
                 Registration Form
               </a>
@@ -86,12 +88,14 @@ const Navbar = () => {
           </ul>
           
           <div className="login">
+          <NavLink to={"/Userlogin"} className="u-login">
+              User Login
+            </NavLink>
+            
             <NavLink to={"/Mechaniclogin"} className="m-login">
               Mechanic Login
             </NavLink>
-            <NavLink to={"/Userlogin"} className="u-login">
-              User Login
-            </NavLink>
+            
            
           </div>
 

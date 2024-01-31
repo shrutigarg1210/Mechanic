@@ -2,24 +2,48 @@
 .navbar {
   height: 80px;
   background-image: linear-gradient(55deg,rgb(51, 49, 49),rgb(175, 163, 163), rgb(41, 38, 38),rgb(10, 20, 54));
-  color: aliceblue;
+  /* color: aliceblue; */
+  position: fixed;
+  top: 0.5%;
+  width: 100%;
+  transition: 0.5s;
+  color: #ad7070;
+  z-index: 1;
 }
 
 .navbar-brand {
-  font-family: "Darumadrop One", cursive;
-  font-size: 1.8rem;
-  color: aliceblue;
+  /* font-family: "Darumadrop One", cursive; */
+  /* font-size: 1.8rem; */
+  /* color: aliceblue; */
+  width: 100px;
+  /* height: 100px; */
+  /* position: relative; */
+  /* overflow: hidden; */
+  /* border-radius: 50%;  */
+}
+img{
+  /* margin-top: -1px; */
+  /* transform: scale(0.91); */
 
+  height: 92%;
+    width: 80%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
 }
 
 .nav-link {
   font-size: 1.4rem;
   font-weight: bold;
-  color: white;
+  /* color: white; */
+  border-radius: 50%;
 }
 
-.dropdown-menu .nav-link {
-  color: black;
+
+.nav-link:hover {
+  color: rgb(59, 3, 49);
 }
 
 .login {
@@ -31,24 +55,34 @@
   color: black;
 }
 
+.dropdown-menu{
+  background-color: #000;
+}
+
 .M-R {
   font-weight:bolder;
   font-size: large;
   margin-left: 5px;
   text-decoration: none;
+  color: #e3e0cc;
 }
-
-.m-login {
+.M-R:hover {
+  /* background-color: rgb(18, 16, 17); */
+  color: rgb(49, 143, 77);
+}
+.u-login {
   margin-right: 10px;
   border-radius: 0;
   text-decoration: none;
+  color: #f2dada;
 }
 
-.u-login {
+.m-login {
   margin-left: 0px;
   box-sizing: content-box;
   border-radius: 0;
   text-decoration: none;
+  color: #f2dada;
 }
 
 .m-login:hover {

@@ -58,9 +58,9 @@
   border-width: 0.1px;
   border-radius: 15px;
   margin: 0 auto;
-  margin-top: 1.3rem;
-  background: linear-gradient(45deg, #0a0a0b, #05313f);
-  color: white;
+  margin-top: 7rem;
+  background:#d6cbd3;
+  color: rgb(31, 9, 9);
   font-size: 20px;
   font-weight: bold;
   font-family: "Josefin Sans", sans-serif;
@@ -68,14 +68,15 @@
   transition: background-color 0.3s ease;
 }
 .form-text {
-  color: grey;
+  color: rgb(12, 11, 11);
 }
 .form-control {
   color: black;
 }
 
 #login:hover {
-  background-color: rgb(23, 23, 123); /* Change background color on hover */
+  background-color: rgb(7, 7, 7); /* Change background color on hover */
+  color: wheat;
 }
 
 @keyframes slideIn {

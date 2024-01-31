@@ -1,127 +1,127 @@
 .contact-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    animation-name: slideIn;
-    animation-duration: 0.5s;
-    animation-timing-function: ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  animation-name: slideIn;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
   }
-  
-  @keyframes slideIn {
-    0% {
-      transform: translateY(-100%);
-    }
-    100% {
-      transform: translateY(0);
-    }
+  100% {
+    transform: translateY(0);
   }
-  
-  
+}
+
+
+
+
+.contact-form {
+  width: 600px;
+  height:93vh;
+  padding: 20px;
+  background-color: #c6c6c6;
+  border-radius: 7px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* .contact-form:hover {
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2); 
+} */
+
 
   
-  .contact-form {
-    width: 600px;
-    padding: 20px;
-    background-color: #c6c6c6;
-    border-radius: 7px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease-in-out;
+  .contact-image {
+    height: 92%;
+    object-fit: cover;
+    /* margin-right: 20px; */
+    border-radius: 5px;
   }
-  
-  /* .contact-form:hover {
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2); 
-  } */
-  
-  
-    
-    .contact-image {
-      height: 92%;
-      object-fit: cover;
-      /* margin-right: 20px; */
-      border-radius: 5px;
-    }
-  .contact-title {
-    color: #fff;
-    background-color: #333;
-    padding: 10px;
-    border-radius: 7px 5px 0 0;
-    margin-top: 0;
-    margin-bottom: 20px;
-    text-align: center; /* Center the text */
-  }
-  
-  
-  
-  .form-group {
-    margin-bottom: 20px;
-    
-  }
-  
-  .form-label {
-    font-weight: bold;
-    font-size: 17px;
-  }
-  
-  .form-control {
-    width: 100%;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  .form-check-input {
-    margin-right: 5px;
-  }
+.contact-title {
+  color: #fff;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 7px 5px 0 0;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center; /* Center the text */
+}
 
+
+
+.form-group {
+  margin-bottom: 20px;
   
-  .rating {
-    margin-top: 10px;
-  }
-  
-  .rating label {
-    cursor: pointer;
-  }
-  
-  .star {
-    font-size: 30px;
-    color: rgb(89, 89, 82); /* Change to desired color for the stars */
-    transition: color 0.3s ease-in-out;
-    margin-right: 7px;
-  }
-  
-  
-  .star.active {
-    color: yellow;
-  }
-  
-  .phone-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  
-  .phone-number {
-    font-weight: bold;
-  }
-  
-  .btn-light {
-    background-color: #007bff;
-    color: #eeeeee;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .btn-light:hover {
-    background-color: #51a3ff; 
-    color: #ffffff; 
-  }
-  
-  
-  .btn-full-width {
-    width: 100%;
-  }
-  
+}
+
+.form-label {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.form-check-input {
+  margin-right: 5px;
+}
+
+
+.rating {
+  margin-top: 10px;
+}
+
+.rating label {
+  cursor: pointer;
+}
+
+.star {
+  font-size: 30px;
+  color: rgb(89, 89, 82); /* Change to desired color for the stars */
+  transition: color 0.3s ease-in-out;
+  margin-right: 7px;
+}
+
+
+.star.active {
+  color: yellow;
+}
+
+.phone-container {
+  display: flex;
+  align-items: center;
+}
+
+
+.phone-number {
+  font-weight: bold;
+}
+
+.btn-light {
+  background-color: #007bff;
+  color: #eeeeee;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-light:hover {
+  background-color: #51a3ff; 
+  color: #ffffff; 
+}
+
+
+.btn-full-width {
+  width: 100%;
+}

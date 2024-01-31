@@ -105,8 +105,8 @@ const Userlogin = () => {
         </form>
         <center>
         <p>OR</p>
-        <Link  style={{ color: "cyan", textDecoration: "none" }}
-        to="../RegistrationForm">SignUp Page😍</Link>
+        <Link  style={{ color: "rgb(95, 158, 160)",fontSize:"20px" }}
+        to="../RegistrationForm">SignUp Page</Link>
         </center>
       </div>
       </div>

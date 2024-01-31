@@ -1,12 +1,11 @@
-
 import React,{ useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./homepage.css";
+import "./HomePage.css";
 import Accordion from "../accordion/Accordion";
-
+import Navbar from "../Navbar";
 const Home = () => {
 
-    const location = useLocation();
+  const location = useLocation();
   const carouselRef = useRef(null);
 
   useEffect(() => {
@@ -18,16 +17,16 @@ const Home = () => {
 
   return (
     <div className="home-page">
-
+      {/* <Navbar/> */}
       <div
         id="carouselExample"
         className="carousel slide"
         ref={carouselRef}
         style={{
-          marginTop: "2.5%",
+          marginTop: "10rem",
           marginLeft: "3rem",
           marginRight: "3rem",
-          height: "500px",
+          height: "450px",
         }}
       >
         {/* <div className="carousel-inner">
@@ -125,7 +124,13 @@ const Home = () => {
           <Link to="/services" className="btn btn-primary">Explore Services</Link>
         </div>
       </section>
-
+      <section className="contact-section">
+      <div className="hero-content">
+        <h2>Contact Us</h2>
+        <p>Have a question or need assistance? Get in touch with our team.</p>
+        <Link to="/contact" className="btn btn-primary">Contact Now</Link>
+        </div>
+      </section>
       <section className="faq-section">
         <h2>Frequent Asked Questions</h2>
         <p>Do you have same Questions, get Answers...</p>
@@ -134,13 +139,7 @@ const Home = () => {
       </section>
      
 
-      <section className="contact-section">
-      <div className="hero-content">
-        <h2>Contact Us</h2>
-        <p>Have a question or need assistance? Get in touch with our team.</p>
-        <Link to="/contact" className="btn btn-primary">Contact Now</Link>
-        </div>
-      </section>
+     
 
       <footer className="footer">
       <div className="footer-content">

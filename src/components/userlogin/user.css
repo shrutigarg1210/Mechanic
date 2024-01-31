@@ -69,9 +69,9 @@ h3{
   border-width: .1px;
   border-radius: 15px;
   margin: 0 auto;
-  margin-top: 3rem;
-  background: linear-gradient(45deg, #0a0a0b, #05313f);
-  color: rgb(246, 246, 246);
+  margin-top: 7rem;
+  background: #a2b9bc;
+  color: rgb(10, 10, 10);
   font-size: 23px;
   font-weight: bold;
   font-family: "Josefin Sans", sans-serif;
@@ -93,7 +93,8 @@ h3 {
 }
 
 #login1:hover {
-  background-color: rgb(23, 23, 123);
+  background-color: rgba(7, 7, 7, 0.984);
+  color: whitesmoke;
   cursor: pointer;
 }
 

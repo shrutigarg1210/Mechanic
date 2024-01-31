@@ -55,7 +55,7 @@ function App() {
               </Layout>
             }
           />
-          <Route path="/about" element={<About />} />
+          <Route path="/About" element={<About />} />
           <Route path="/Services" element={<Services />} />
           <Route path="/Mechaniclogin" element={<Mechaniclogin />} />
           <Route path="/Userlogin" element={<Userlogin />} />
@@ -70,3 +70,10 @@ function App() {
 }
 
 export default App;
+
+
+//Browserrouter 
+// it helps you create URLs like example.com/home and example.com/about without the need for full page reloads.
+
+//route Route is another component from React Router that defines what to render when a particular route is matched. 
+//It takes two main props: path (the URL path to match) and component (the component to render when the path matches).
