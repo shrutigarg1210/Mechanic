@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
-import { FaStar } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar";
 import "./Contact.css";
@@ -17,7 +16,7 @@ const Contact = () => {
   const handleInputChange = (e) => {
     const { id, value } = e.target;
 
-    if (id == "username") {
+    if (id === "username") {
       setUsername(value);
     }
 

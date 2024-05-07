@@ -2,11 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 78.8vh;
   animation-name: slideIn;
   animation-duration: 0.5s;
-  animation-timing-function: ease;
-}
+  animation-timing-function: ease;}
 
 @keyframes slideIn {
   0% {
@@ -27,12 +26,9 @@
   transition: box-shadow 0.3s ease-in-out;
 }
 
-/* .contact-form:hover {
-  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2); 
-} */
 
 .contact-image {
-  height: 70%;
+  height: 70vh;
   object-fit:cover;
   /* margin-right: 20px; */
   border-radius: 5px;

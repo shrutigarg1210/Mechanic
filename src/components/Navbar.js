@@ -3,9 +3,7 @@ import "./Navbar.css";
 import logo from "./logo.jpg"
 import {
   Link,
-  BrowserRouter as Router,
-  Switch,
-  Route,
+  BrowserRouter as 
   NavLink,
 } from "react-router-dom";  
 const Navbar = () => {
@@ -13,7 +11,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container-fluid">
         <a className="navbar-brand"  href="/" >
-          <img src={logo} height="60" className="logo"></img>
+          <img src={logo} height="60" className="logo" alt='img is not reloaded' />
           {/* <h1>OnTheGoMechanic</h1> */}
         </a>
         <button

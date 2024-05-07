@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  overflow: auto;
 }
 
 /* Header Styles */
@@ -45,9 +46,11 @@ body {
 
 /* Hero Section Styles */
 .hero-section {
+  /* background-image: url("https://lh5.googleusercontent.com/proxy/nO2LkSaZdO-OlqjJrwMw5qif9xzLCKvuY4qAtwnyzQiMbBZjWoR4KcvkcTMo_iKq6yWJuA_rgZwZbL-Z-392LwH-gGoxjyvF1FgBEaEgLtyxP133_dRXH4g"); */
   padding: 100px 0;
   text-align: center;
   margin: 20px;
+  margin-top: 50px;
   border-radius: 8px;
 }
 

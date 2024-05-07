@@ -4,7 +4,7 @@
   }
   
   .services-container h1 {
-    /* background: linear-gradient(45deg, #0a0a0b, #05313f); */
+    background: linear-gradient(45deg, #0a0a0b, #05313f);
     color: #fff;
     padding: 10px;
     border-radius: 5px;
@@ -15,15 +15,12 @@
     transition: background-color 0.4s ease;
     margin: 10px 0;
   }
-  
-  .services-container h1:hover {
-    background-color: #7b7575;
-  }
-  
+ 
   .services {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    cursor: pointer;
   }
   
   .service {

@@ -1,8 +1,7 @@
-import React, { useState, setState,useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./Mechanicform.css";
-import { useNavigate, Link } from "react-router-dom";
-import Navbar from "../Navbar";
+import { useNavigate } from "react-router-dom";
 import './mechanic.svg'
 const Mechanicform = () => {
   const navigate = useNavigate();
@@ -61,13 +60,13 @@ const Mechanicform = () => {
     }
   };
 
-  const handleSubmit = () => {
-    if (password === confirmPassword) {
-      console.log("Wrong Details");
-    } else {
-      console.log("Password does not match");
-    }
-  };
+  // const handleSubmit = () => {
+  //   if (password === confirmPassword) {
+  //     console.log("Wrong Details");
+  //   } else {
+  //     console.log("Password does not match");
+  //   }
+  // };
 
   
 

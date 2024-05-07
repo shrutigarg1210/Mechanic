@@ -2,7 +2,7 @@
 import Navbar from "./components/Navbar";
 import About from "./components/AboutDetails/About";
 import Home from "./components/home/Home";
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Mechanicform from "./components/MechanicForm/Mechanicform";
 import "./components/MechanicLogin/Mechaniclogin";
 import Layout from "./Layout";

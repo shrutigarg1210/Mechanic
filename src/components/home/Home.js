@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./HomePage.css";
 const Home = () => {
-  const location = useLocation();
+
   const carouselRef = useRef(null);
 
   useEffect(() => {

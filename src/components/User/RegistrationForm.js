@@ -1,8 +1,7 @@
-import React, { useState, setState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useGeolocation from "react-hook-geolocation";
-import Navbar from "../Navbar";
 import './Registeration.css';
 const Registrationform = () => {
   const navigate = useNavigate();
