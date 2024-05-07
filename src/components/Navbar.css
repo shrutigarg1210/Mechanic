@@ -1,9 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Darumadrop+One&display=swap");
 .navbar {
   height: 80px;
-  background-image: linear-gradient(55deg,rgb(51, 49, 49),rgb(175, 163, 163), rgb(41, 38, 38),rgb(10, 20, 54));
-  /* color: aliceblue; */
-  position: fixed;
+  background-image: linear-gradient(
+    55deg,
+    rgb(51, 49, 49),
+    rgb(175, 163, 163),
+    rgb(41, 38, 38),
+    rgb(10, 20, 54)
+  );
   top: 0.5%;
   width: 100%;
   transition: 0.5s;
@@ -12,26 +16,16 @@
 }
 
 .navbar-brand {
-  /* font-family: "Darumadrop One", cursive; */
-  /* font-size: 1.8rem; */
-  /* color: aliceblue; */
   width: 100px;
-  /* height: 100px; */
-  /* position: relative; */
-  /* overflow: hidden; */
-  /* border-radius: 50%;  */
 }
-img{
-  /* margin-top: -1px; */
-  /* transform: scale(0.91); */
-
+img {
   height: 92%;
-    width: 80%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
+  width: 80%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
 }
 
 .nav-link {
@@ -40,7 +34,6 @@ img{
   /* color: white; */
   border-radius: 50%;
 }
-
 
 .nav-link:hover {
   color: rgb(59, 3, 49);
@@ -55,19 +48,18 @@ img{
   color: black;
 }
 
-.dropdown-menu{
+.dropdown-menu {
   background-color: #000;
 }
 
 .M-R {
-  font-weight:bolder;
+  font-weight: bolder;
   font-size: large;
   margin-left: 5px;
   text-decoration: none;
   color: #e3e0cc;
 }
 .M-R:hover {
-  /* background-color: rgb(18, 16, 17); */
   color: rgb(49, 143, 77);
 }
 .u-login {
